@@ -117,7 +117,7 @@ public class PacManUI extends JFrame {
         setTitle("JPacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/1.jpg");
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/1.png");
         JLabel j = new JLabel(imp);
         setContentPane(j);
         revalidate();
@@ -133,7 +133,7 @@ public class PacManUI extends JFrame {
 
             }
         });
-        settingpage.setBounds(253,394,80,30);
+        settingpage.setBounds(249,329,100,45);
         settingpage.setOpaque(false);
         settingpage.setContentAreaFilled(false);
         settingpage.setBorderPainted(false);
@@ -149,7 +149,7 @@ public class PacManUI extends JFrame {
             }
         });
 
-        exit.setBounds(253,458,80,30);
+        exit.setBounds(249,405,100,45);
         exit.setOpaque(false);
         exit.setContentAreaFilled(false);
         exit.setBorderPainted(false);
@@ -164,7 +164,7 @@ public class PacManUI extends JFrame {
                 GamePage();
             }
         });
-        PlayGame.setBounds(253,275,80,80);
+        PlayGame.setBounds(190,268,210,30);
         PlayGame.setOpaque(false);
         PlayGame.setContentAreaFilled(false);
         PlayGame.setBorderPainted(false);
@@ -176,21 +176,23 @@ public class PacManUI extends JFrame {
     public void Settingpage(){
         setTitle("JPacman");
         ImageIcon imp = new ImageIcon("./src/main/resources/sprite/stbg.png");
-        JLabel j = new JLabel(imp);
-        setContentPane(j);
+        JLabel j1 = new JLabel(imp);
+        setContentPane(j1);
 
         // Just for refresh :) Not optional!
+
         JButton stateBtn = new JButton();
         stateBtn.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==stateBtn) {
+                    j1.setIcon(null);
                     ChoosestagePage();
                 }
             }
         });
-        stateBtn.setBounds(90,100,200,50);
+        stateBtn.setBounds(150,160,280,50);
         stateBtn.setOpaque(false);
         stateBtn.setContentAreaFilled(false);
         stateBtn.setBorderPainted(false);
@@ -201,13 +203,11 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==themeBtn) {
 
-                }
             }
         });
 
-        themeBtn.setBounds(90,170,200,50);
+        themeBtn.setBounds(150,260,280,50);
         themeBtn.setOpaque(false);
         themeBtn.setContentAreaFilled(false);
         themeBtn.setBorderPainted(false);
@@ -218,12 +218,11 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==backBtn) {
-                    Homepage();
-                }
+                Homepage();
+
             }
         });
-        backBtn.setBounds(140,235,100,50);
+        backBtn.setBounds(220,360,140,60);
         backBtn.setOpaque(false);
         backBtn.setContentAreaFilled(false);
         backBtn.setBorderPainted(false);
@@ -233,6 +232,7 @@ public class PacManUI extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 600);
         this.setVisible(true);
+
 
     }
 
@@ -273,16 +273,11 @@ public class PacManUI extends JFrame {
         pack();
     }
     public void ChoosestagePage(){
-        getContentPane().removeAll();
-        validate();
+
         setTitle("JPacman");
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
-        setVisible(true);
-        ImageIcon imp1 = new ImageIcon("./src/main/resources/sprite/3.jpg");
-        JLabel j1 = new JLabel(imp1);
-        setContentPane(j1);
+        ImageIcon imp3 = new ImageIcon("./src/main/resources/sprite/3.png");
+        JLabel j3 = new JLabel(imp3);
+        setContentPane(j3);
         setSize(600,600);
 
         JButton backtosetting = new JButton();
@@ -290,12 +285,12 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                j1.setIcon(null);
+
                 Settingpage();
 
             }
         });
-        backtosetting.setBounds(253,475,80,30);
+        backtosetting.setBounds(237,444,110,50);
         backtosetting.setOpaque(false);
         backtosetting.setContentAreaFilled(false);
         backtosetting.setBorderPainted(false);

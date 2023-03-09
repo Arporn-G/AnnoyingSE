@@ -70,8 +70,8 @@ public class PacManUI extends JFrame {
 
 
     public PacManUI(final Game game, final Map<String, Action> buttons,
-                  final Map<Integer, Action> keyMappings,
-                  ScoreFormatter scoreFormatter) {
+                    final Map<Integer, Action> keyMappings,
+                    ScoreFormatter scoreFormatter) {
         super("JPacman");
         assert game != null;
         assert buttons != null;
@@ -113,15 +113,14 @@ public class PacManUI extends JFrame {
     }
 
     public void Homepage(){
+
         setTitle("JPacman");
-        setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
         setVisible(true);
-        ImageIcon imp = new ImageIcon("/1.jpg");
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/1.jpg");
         JLabel j = new JLabel(imp);
         setContentPane(j);
-
+        revalidate();
 
         // Just for refresh :) Not optional!
         JButton settingpage = new JButton();
@@ -175,44 +174,66 @@ public class PacManUI extends JFrame {
     }
 
     public void Settingpage(){
-        getContentPane().removeAll();
-        validate();
         setTitle("JPacman");
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
-        setVisible(true);
-        setSize(400,400);
-        setBackground(Color.WHITE);
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/stbg.png");
+        JLabel j = new JLabel(imp);
+        setContentPane(j);
 
-        JButton backtohome = new JButton("Back");
-        backtohome.addActionListener(new ActionListener() {
+        // Just for refresh :) Not optional!
+        JButton stateBtn = new JButton();
+        stateBtn.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Homepage();
-
+                if(e.getSource()==stateBtn) {
+                    ChoosestagePage();
+                }
             }
         });
-        backtohome.setBounds(253,250,80,30);
-        add(backtohome);
+        stateBtn.setBounds(90,100,200,50);
+        stateBtn.setOpaque(false);
+        stateBtn.setContentAreaFilled(false);
+        stateBtn.setBorderPainted(false);
+        this.add(stateBtn);
 
-        JButton toChoosestage = new JButton("To Choose stage");
-        toChoosestage.addActionListener(new ActionListener() {
+        JButton themeBtn = new JButton();
+        themeBtn.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==themeBtn) {
 
-                ChoosestagePage();
-
+                }
             }
         });
-        toChoosestage.setBounds(253,100,80,30);
-        add(toChoosestage);
-        JLabel label1 = new JLabel("Setting Page");
-        label1.setBounds(153,150,100,30);
-        add(label1);
+
+        themeBtn.setBounds(90,170,200,50);
+        themeBtn.setOpaque(false);
+        themeBtn.setContentAreaFilled(false);
+        themeBtn.setBorderPainted(false);
+        this.add(themeBtn);
+
+        JButton backBtn = new JButton();
+        backBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==backBtn) {
+                    Homepage();
+                }
+            }
+        });
+        backBtn.setBounds(140,235,100,50);
+        backBtn.setOpaque(false);
+        backBtn.setContentAreaFilled(false);
+        backBtn.setBorderPainted(false);
+        this.add(backBtn);
+
+        // set frame properties
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(600, 600);
+        this.setVisible(true);
+
     }
 
     public void GamePage() {
@@ -259,7 +280,7 @@ public class PacManUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
-        ImageIcon imp1 = new ImageIcon("/3.jpg");
+        ImageIcon imp1 = new ImageIcon("./src/main/resources/sprite/3.jpg");
         JLabel j1 = new JLabel(imp1);
         setContentPane(j1);
         setSize(600,600);

@@ -203,7 +203,10 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if(e.getSource()==themeBtn) {
+                    j1.setIcon(null);
+                    ChoosethemePage();
+                }
             }
         });
 
@@ -288,6 +291,28 @@ public class PacManUI extends JFrame {
 
                 Settingpage();
 
+            }
+        });
+        backtosetting.setBounds(237,444,110,50);
+        backtosetting.setOpaque(false);
+        backtosetting.setContentAreaFilled(false);
+        backtosetting.setBorderPainted(false);
+        add(backtosetting);
+    }
+    public void ChoosethemePage(){
+
+        setTitle("JPacman");
+        ImageIcon imp4 = new ImageIcon("./src/main/resources/sprite/4.png");
+        JLabel j4 = new JLabel(imp4);
+        setContentPane(j4);
+        setSize(600,600);
+
+        JButton backtosetting = new JButton();
+        backtosetting.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Settingpage();
             }
         });
         backtosetting.setBounds(237,444,110,50);

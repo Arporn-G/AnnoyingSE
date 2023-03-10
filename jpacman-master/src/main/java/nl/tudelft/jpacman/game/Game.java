@@ -17,7 +17,7 @@ import javax.swing.*;
 /**
  * A basic implementation of a Pac-Man game.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 public abstract class Game implements LevelObserver {
 
@@ -117,6 +117,7 @@ public abstract class Game implements LevelObserver {
 
     @Override
     public void levelLost() {
+        PacManUI p = new PacManUI();
         stop();
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
@@ -126,16 +127,19 @@ public abstract class Game implements LevelObserver {
         panel.add(label);
         panel.add(okButton);
         panel.add(cancelButton);
-        okButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.setSize(200, 200);
-        frame.setVisible(true); // Display the frame as a pop-up window
+        frame.setVisible(true);
+        okButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Launcher.dispose();
+                p.Homepage();
+            }
+        });
+         // Display the frame as a pop-up window
 
     }
 

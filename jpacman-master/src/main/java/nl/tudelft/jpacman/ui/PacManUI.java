@@ -53,6 +53,8 @@ public class PacManUI extends JFrame {
     private ButtonPanel buttonPanel;
     private Game game;
     private PacKeyListener keys;
+
+    public String currentPage;
     /**
      * Creates a new UI for a JPacman game.
      *
@@ -112,6 +114,7 @@ public class PacManUI extends JFrame {
     }
 
     public  void Homepage(){
+        currentPage = "Homepage";
         setTitle("JPacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
@@ -175,6 +178,7 @@ public class PacManUI extends JFrame {
     }
 
     public void Settingpage(){
+        currentPage = "Settingpage";
         setTitle("JPacman");
         ImageIcon imp = new ImageIcon("./src/main/resources/sprite/stbg.png");
         JLabel j1 = new JLabel(imp);
@@ -268,7 +272,7 @@ public class PacManUI extends JFrame {
         JLabel label2 = new JLabel("Game Page");
         label2.setBounds(153,150,100,30);
         add(label2);*/
-
+        currentPage = "Gamepage";
         /*
         setTitle("JPacman");
         ImageIcon img5 = new ImageIcon("../resources/sprite/game_page_north.png");
@@ -304,7 +308,7 @@ public class PacManUI extends JFrame {
         pack();
     }
     public void ChoosestagePage(){
-
+        currentPage = "Choosestagepage";
         setTitle("JPacman");
         ImageIcon imp3 = new ImageIcon("./src/main/resources/sprite/3.png");
         JLabel j3 = new JLabel(imp3);
@@ -328,7 +332,7 @@ public class PacManUI extends JFrame {
         add(backtosetting);
     }
     public void ChoosethemePage(){
-
+        currentPage = "Choosethemepage";
         setTitle("JPacman");
         ImageIcon imp4 = new ImageIcon("./src/main/resources/sprite/4.png");
         JLabel j4 = new JLabel(imp4);

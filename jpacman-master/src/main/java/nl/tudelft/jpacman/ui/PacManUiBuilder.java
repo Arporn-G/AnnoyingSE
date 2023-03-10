@@ -90,6 +90,8 @@ public class PacManUiBuilder {
             JButton resumeButton = new JButton("Resume");
             JButton restartButton = new JButton("Restart");
             JButton exitButton = new JButton("Exit");
+            popupFrame.setBounds(0, 0, 300, 300);
+
 
             // Add components to popup panel
             popupPanel.add(popupLabel);
@@ -97,6 +99,7 @@ public class PacManUiBuilder {
             popupPanel.add(restartButton);
             popupPanel.add(exitButton);
             popupPanel.setLayout(new GridLayout(4, 1));
+            popupLabel.setHorizontalAlignment(JLabel.CENTER);
 
 
 
@@ -104,8 +107,9 @@ public class PacManUiBuilder {
             popupFrame.setUndecorated(true);
             popupFrame.setLocationRelativeTo(null);
             popupFrame.add(popupPanel);
-            popupFrame.setSize(200, 200);
+            popupFrame.setSize(300, 300);
             popupFrame.setVisible(true);
+
 
             // Resume button action listener
             resumeButton.addActionListener(e -> {
@@ -206,3 +210,5 @@ public class PacManUiBuilder {
 
 
 }
+
+

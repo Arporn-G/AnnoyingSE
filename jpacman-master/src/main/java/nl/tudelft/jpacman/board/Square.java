@@ -127,4 +127,17 @@ public abstract class Square {
      */
     public abstract Sprite getSprite();
 
+    public int getX() {
+        return 0;
+    }
+
+    public int getY() {
+
+        return 0;
+    }
+
+    public Square getSquareAt(int i, int j) {
+
+        return null;
+    }
 }

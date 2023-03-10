@@ -3,7 +3,6 @@ package nl.tudelft.jpacman.ui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -57,20 +56,10 @@ public class PacManUI extends JFrame {
     /**
      * Creates a new UI for a JPacman game.
      *
-     * @param game
-     *            The game to play.
-     * @param buttons
-     *            The map of caption-to-action entries that will appear as
-     *            buttons on the interface.
-     * @param keyMappings
-     *            The map of keyCode-to-action entries that will be added as key
-     *            listeners to the interface.
-     * @param scoreFormatter
-     *            The formatter used to display the current score.
+
      */
 
-
-
+    public PacManUI(){};
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter) {
@@ -98,7 +87,7 @@ public class PacManUI extends JFrame {
         contentPanel.add(scorePanel, BorderLayout.NORTH);
         contentPanel.add(boardPanel, BorderLayout.CENTER);
         pack();*/
-
+        JFrame jf = new JFrame();
         Homepage();
 
     }
@@ -114,8 +103,7 @@ public class PacManUI extends JFrame {
         scorePanel.refresh();
     }
 
-    public void Homepage(){
-
+    public  void Homepage(){
         setTitle("JPacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);

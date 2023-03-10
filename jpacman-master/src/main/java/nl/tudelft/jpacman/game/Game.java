@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.game;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -13,6 +14,7 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.ui.PacManUI;
 import nl.tudelft.jpacman.ui.PacManUiBuilder;
+import nl.tudelft.jpacman.ui.ScorePanel;
 
 import javax.swing.*;
 
@@ -123,16 +125,55 @@ public abstract class Game implements LevelObserver {
         stop();
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
+
+        frame.setBounds(0, 0, 300, 300);
         JLabel label = new JLabel("End");
+        String score = ScorePanel.DEFAULT_SCORE_FORMATTER.format(getPlayers().get(0));
+        JLabel label2 = new JLabel( "Your Final " + score + " !");
         JButton okButton = new JButton("Restart");
         JButton cancelButton = new JButton("Home");
-        panel.add(label);
-        panel.add(okButton);
-        panel.add(cancelButton);
+
+
+        GridBagLayout gridBagLayout = new GridBagLayout();
+        gridBagLayout.columnWidths = new int[] {0, 0, 0};
+        gridBagLayout.rowHeights = new int[] {0, 0, 0, 0};
+        gridBagLayout.columnWeights = new double[] {0.0, 0.0, Double.MIN_VALUE};
+        gridBagLayout.rowWeights = new double[] {0.0, 0.0, 0.0, Double.MIN_VALUE};
+        frame.getContentPane().setLayout(gridBagLayout);
+
+        GridBagConstraints gbc_label1 = new GridBagConstraints();
+        gbc_label1.insets = new Insets(5, 0, 0, 0);
+        gbc_label1.gridx = 1;
+        gbc_label1.gridy = 1;
+        frame.getContentPane().add(label, gbc_label1);
+
+        GridBagConstraints gbc_label2 = new GridBagConstraints();
+        gbc_label2.insets = new Insets(0, 0, 0, 0);
+        gbc_label2.gridx = 1;
+        gbc_label2.gridy = 2;
+        frame.getContentPane().add(label2, gbc_label2);
+
+        GridBagConstraints gbc_btn1 = new GridBagConstraints();
+        gbc_btn1.insets = new Insets(0, 10, 0, 0);
+        gbc_btn1.gridx = 0;
+        gbc_btn1.gridy = 3;
+        frame.getContentPane().add(okButton, gbc_btn1);
+
+        GridBagConstraints gbc_btn2 = new GridBagConstraints();
+        gbc_btn2.insets = new Insets(0, 0, 0, 0);
+        gbc_btn2.gridx = 2;
+        gbc_btn2.gridy = 3;
+        frame.getContentPane().add(cancelButton, gbc_btn2);
+
+
+//        panel.add(label);
+//        panel.add(label2);
+//        panel.add(okButton);
+//        panel.add(cancelButton);
         frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
-        frame.setSize(200, 200);
+        frame.setSize(300, 300);
         frame.setVisible(true);
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

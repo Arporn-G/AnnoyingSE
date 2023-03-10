@@ -1,18 +1,14 @@
 package nl.tudelft.jpacman.ui;
 
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 /**
  * add new import
  */
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.FontFormatException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -58,7 +54,6 @@ public class ScorePanel extends JPanel {
         super();
         assert players != null;
 
-        setLayout(new GridLayout(2, players.size()));
         /**
          * edit rows:2 --> 4
          * add new

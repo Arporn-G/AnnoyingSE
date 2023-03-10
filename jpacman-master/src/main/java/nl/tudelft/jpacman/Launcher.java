@@ -178,12 +178,25 @@ public class Launcher {
     /**
      * Creates and starts a JPac-Man game.
      */
-    public void launch() {
-        makeGame();
-        PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
-        addSinglePlayerKeys(builder);
-        pacManUI = builder.build(getGame());
-        pacManUI.start();
+    public void launch(boolean m) {
+        if(m == true){
+            makeGame();
+            PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
+            addSinglePlayerKeys(builder);
+            pacManUI = builder.build(getGame());
+            pacManUI.start();
+        }
+
+        if(m == false){
+            makeGame();
+            PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
+            addSinglePlayerKeys(builder);
+            pacManUI = builder.build(getGame());
+            pacManUI.restart();
+        }
+
+
+
     }
 
     /**
@@ -206,6 +219,6 @@ public class Launcher {
      *             When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
-        new Launcher().launch();
+        new Launcher().launch(true);
     }
 }

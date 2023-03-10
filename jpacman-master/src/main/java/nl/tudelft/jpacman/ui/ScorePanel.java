@@ -7,19 +7,25 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+/**
+ * add new import
+ */
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import nl.tudelft.jpacman.level.Player;
-import nl.tudelft.jpacman.ui.PacManUI;
 
 /**
  * A panel consisting of a column for each player, with the numbered players on
  * top and their respective scores underneath.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  *
  */
 public class ScorePanel extends JPanel {
-
     /**
      * Default serialisation ID.
      */
@@ -47,20 +53,66 @@ public class ScorePanel extends JPanel {
      * @param players
      *            The players to display the scores of.
      */
+    Font pixelMplusRegular, pixelMplusBold;
     public ScorePanel(List<Player> players) {
         super();
         assert players != null;
 
         setLayout(new GridLayout(2, players.size()));
+        /**
+         * edit rows:2 --> 4
+         * add new
+         * */
+        int rows = 4, cols = players.size();
+//        setLayout(new GridLayout(2, players.size()));
+        setLayout(new GridLayout(rows, cols, 0, 0));
+//        setBounds(300, 200, 600, 600);
+
+        try {
+            InputStream is = getClass().getResourceAsStream("/fonts/PixelMplus10-Regular.ttf");
+            pixelMplusRegular = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24F);
+            is = getClass().getResourceAsStream("/fonts/PixelMplus10-Bold.ttf");
+            pixelMplusBold = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(24F);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+//        pixelMplus = new Font("pixelMplus", Font.TRUETYPE_FONT, 24);
+
+        setBackground(Color.BLACK);
+
+        for (int i = 1; i <= cols; i++) {
+
+            JLabel spaceLabel = new JLabel("");
+            spaceLabel.setForeground(Color.WHITE);
+            add(spaceLabel);
+        }
+
 
         for (int i = 1; i <= players.size(); i++) {
-            add(new JLabel("Player " + i, JLabel.CENTER));
+//            add(new JLabel("Player " + i, JLabel.CENTER));
+            JLabel playerTextLabel = new JLabel("Player " + i, JLabel.LEFT);
+            playerTextLabel.setForeground(Color.WHITE);
+            playerTextLabel.setFont(pixelMplusRegular);
+            add(playerTextLabel);
         }
+
         scoreLabels = new LinkedHashMap<>();
         for (Player player : players) {
-            JLabel scoreLabel = new JLabel("0", JLabel.CENTER);
-            scoreLabels.put(player, scoreLabel);
-            add(scoreLabel);
+//            JLabel scoreLabel = new JLabel("0", JLabel.CENTER);
+            JLabel scoreTextLabel = new JLabel("0", JLabel.LEFT);
+            scoreTextLabel.setForeground(Color.WHITE);
+            scoreTextLabel.setFont(pixelMplusRegular);
+            scoreLabels.put(player, scoreTextLabel);
+            add(scoreTextLabel);
+        }
+
+        for (int i = 1; i <= cols; i++) {
+
+            JLabel spaceLabel = new JLabel("");
+            spaceLabel.setForeground(Color.WHITE);
+            add(spaceLabel);
         }
     }
 
@@ -72,7 +124,7 @@ public class ScorePanel extends JPanel {
             Player player = entry.getKey();
             String score = "";
             if (!player.isAlive()) {
-                score = "You died.";
+                score = "You died. ";
             }
             score += scoreFormatter.format(player);
             entry.getValue().setText(score);

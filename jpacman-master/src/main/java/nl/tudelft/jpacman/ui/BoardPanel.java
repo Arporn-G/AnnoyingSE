@@ -55,7 +55,9 @@ class BoardPanel extends JPanel {
 
         int w = board.getWidth() * SQUARE_SIZE;
         int h = board.getHeight() * SQUARE_SIZE;
-
+//        System.out.println(board.getWidth());
+//        System.out.println(board.getHeight());
+//        System.out.println(w);
         Dimension size = new Dimension(w, h);
         setMinimumSize(size);
         setPreferredSize(size);
@@ -92,6 +94,12 @@ class BoardPanel extends JPanel {
                 render(square, graphics, cellX, cellY, cellW, cellH);
             }
         }
+//        System.out.println("cellW: " + cellW);
+//        System.out.println("cellH: " + cellH);
+//        System.out.println("dimension w: " + window.getWidth());
+//        System.out.println("dimension h: " + window.getHeight());
+//        System.out.println("board w: " + board.getWidth());
+//        System.out.println("board h: " + board.getHeight());
     }
 
     /**

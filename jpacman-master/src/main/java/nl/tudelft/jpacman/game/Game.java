@@ -1,12 +1,18 @@
 package nl.tudelft.jpacman.game;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.level.Level;
 import nl.tudelft.jpacman.level.Level.LevelObserver;
 import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.points.PointCalculator;
+import nl.tudelft.jpacman.ui.PacManUI;
+
+import javax.swing.*;
 
 /**
  * A basic implementation of a Pac-Man game.
@@ -112,5 +118,25 @@ public abstract class Game implements LevelObserver {
     @Override
     public void levelLost() {
         stop();
+        JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        JLabel label = new JLabel("End");
+        JButton okButton = new JButton("Restart");
+        JButton cancelButton = new JButton("Home");
+        panel.add(label);
+        panel.add(okButton);
+        panel.add(cancelButton);
+        okButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        frame.setUndecorated(true);
+        frame.setLocationRelativeTo(null);
+        frame.add(panel);
+        frame.setSize(200, 200);
+        frame.setVisible(true); // Display the frame as a pop-up window
+
     }
+
 }

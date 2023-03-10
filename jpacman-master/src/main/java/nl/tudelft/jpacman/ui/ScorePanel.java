@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import nl.tudelft.jpacman.level.Player;
+import nl.tudelft.jpacman.ui.PacManUI;
 
 /**
  * A panel consisting of a column for each player, with the numbered players on
@@ -71,7 +72,7 @@ public class ScorePanel extends JPanel {
             Player player = entry.getKey();
             String score = "";
             if (!player.isAlive()) {
-                score = "You died. ";
+                score = "You died.";
             }
             score += scoreFormatter.format(player);
             entry.getValue().setText(score);

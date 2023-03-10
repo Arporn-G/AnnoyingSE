@@ -96,6 +96,14 @@ public class PacManUI extends JFrame {
         setVisible(true);
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
         service.scheduleAtFixedRate(this::nextFrame, 0, FRAME_INTERVAL, TimeUnit.MILLISECONDS);
+
+    }
+
+    public void restart() {
+        setVisible(true);
+        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+        service.scheduleAtFixedRate(this::nextFrame, 0, FRAME_INTERVAL, TimeUnit.MILLISECONDS);
+        GamePage();
     }
 
     private void nextFrame() {
@@ -162,7 +170,6 @@ public class PacManUI extends JFrame {
         PlayGame.setBorderPainted(false);
         add(PlayGame);
         setSize(600,600);
-        this.setLocationRelativeTo(null);
 
     }
 
@@ -261,35 +268,8 @@ public class PacManUI extends JFrame {
         label2.setBounds(153,150,100,30);
         add(label2);*/
 
-        /*
-        setTitle("JPacman");
-        ImageIcon img5 = new ImageIcon("../resources/sprite/game_page_north.png");
-        JLabel j4 = new JLabel(img5);
-        setContentPane(j4);
-        setSize(600, 50);
-        setVisible(true);
-        */
-
-        /*
-        JFrame frame = new JFrame();
-        frame.setSize(800,800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(true);
-        frame.add(this.boardPanel, BorderLayout.CENTER);
-        frame.add(this.scorePanel, BorderLayout.NORTH);
-        frame.add(this.buttonPanel, BorderLayout.SOUTH);
-        frame.setTitle("JPACMAN");
-        frame.setVisible(true);
-         */
-
         Container contentPanel = getContentPane();
         contentPanel.setLayout(new BorderLayout());
-//        contentPanel.setSize(800, 800);
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.setLocationRelativeTo(null);
-//        this.setResizable(false);
         contentPanel.add(this.buttonPanel, BorderLayout.SOUTH);
         contentPanel.add(this.scorePanel, BorderLayout.NORTH);
         contentPanel.add(this.boardPanel, BorderLayout.CENTER);

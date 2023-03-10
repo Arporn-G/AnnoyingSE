@@ -80,7 +80,7 @@ public class PacManUI extends JFrame {
         this.boardPanel = new BoardPanel(game);
         this.keys = new PacKeyListener(keyMappings);
         addKeyListener(keys);
-
+        this.setResizable(false);
         this.buttonPanel = new ButtonPanel(buttons, this);
 
         this.scorePanel = new ScorePanel(game.getPlayers());

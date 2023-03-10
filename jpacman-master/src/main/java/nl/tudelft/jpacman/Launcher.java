@@ -32,7 +32,7 @@ public class Launcher {
     public static final String DEFAULT_MAP = "/board.txt";
     private String levelMap = DEFAULT_MAP;
 
-    private PacManUI pacManUI;
+    private static PacManUI pacManUI;
     private Game game;
 
     /**
@@ -192,7 +192,7 @@ public class Launcher {
      *
      * Precondition: The game was launched first.
      */
-    public void dispose() {
+    public static void dispose() {
         assert pacManUI != null;
         pacManUI.dispose();
     }
@@ -207,6 +207,5 @@ public class Launcher {
      */
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
-
     }
 }

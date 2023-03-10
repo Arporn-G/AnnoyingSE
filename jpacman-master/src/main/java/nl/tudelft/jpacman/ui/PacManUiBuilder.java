@@ -1,9 +1,10 @@
 package nl.tudelft.jpacman.ui;
-
+import javax.swing.*;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
 
@@ -80,7 +81,53 @@ public class PacManUiBuilder {
     private void addStopButton(final Game game) {
         assert game != null;
 
-        buttons.put(STOP_CAPTION, game::stop);
+        buttons.put(STOP_CAPTION, () -> {
+            game.stop();
+
+            JFrame popupFrame = new JFrame();
+            JPanel popupPanel = new JPanel();
+            JLabel popupLabel = new JLabel("Game Paused");
+            JButton resumeButton = new JButton("Resume");
+            JButton restartButton = new JButton("Restart");
+            JButton exitButton = new JButton("Exit");
+
+            // Add components to popup panel
+            popupPanel.add(popupLabel);
+            popupPanel.add(resumeButton);
+            popupPanel.add(restartButton);
+            popupPanel.add(exitButton);
+            popupPanel.setLayout(new GridLayout(4, 1));
+
+
+
+            // Configure popup frame
+            popupFrame.setUndecorated(true);
+            popupFrame.setLocationRelativeTo(null);
+            popupFrame.add(popupPanel);
+            popupFrame.setSize(200, 200);
+            popupFrame.setVisible(true);
+
+            // Resume button action listener
+            resumeButton.addActionListener(e -> {
+                popupFrame.dispose();
+                game.start();
+            });
+
+            // Restart button action listener
+            restartButton.addActionListener(e -> {
+                popupFrame.dispose();
+                new Launcher().launch(false);
+            });
+
+            // Exit button action listener
+            exitButton.addActionListener(e -> {
+                popupFrame.dispose();
+                game.stop();
+                System.exit(0);
+            });
+        });
+
+
     }
 
     /**
@@ -155,4 +202,6 @@ public class PacManUiBuilder {
         this.scoreFormatter = scoreFormatter;
         return this;
     }
+
+
 }

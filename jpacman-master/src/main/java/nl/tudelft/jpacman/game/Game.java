@@ -132,11 +132,13 @@ public abstract class Game implements LevelObserver {
         frame.add(panel);
         frame.setSize(200, 200);
         frame.setVisible(true);
-        okButton.addActionListener(new ActionListener() {
+        cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
+                p.dispose();
                 Launcher.dispose();
-                p.Homepage();
+                new Launcher().launch();
+
             }
         });
          // Display the frame as a pop-up window

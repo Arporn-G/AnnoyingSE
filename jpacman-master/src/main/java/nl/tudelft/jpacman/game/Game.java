@@ -134,10 +134,11 @@ public abstract class Game implements LevelObserver {
         frame.setVisible(true);
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                p.dispose();
+                frame.setVisible(false);
                 Launcher.dispose();
-                new Launcher().launch();
+                new Launcher().launch(false);
+
+
 
             }
         });

@@ -160,8 +160,10 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 GamePage();
+                remove(settingpage);
+                remove(exit);
+                remove(PlayGame);
             }
         });
         PlayGame.setBounds(190,268,210,30);

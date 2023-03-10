@@ -116,6 +116,7 @@ public class PacManUiBuilder {
             // Restart button action listener
             restartButton.addActionListener(e -> {
                 popupFrame.dispose();
+                Launcher.dispose();
                 new Launcher().launch(false);
             });
 

@@ -261,6 +261,7 @@ public class PacManUI extends JFrame {
         stateone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setTheme_(theme_num);
                 dispose();
                 new Launcher().launch(1);
             }
@@ -273,7 +274,7 @@ public class PacManUI extends JFrame {
         statetwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme_(1);
+                setTheme_(theme_num);;
                 dispose();
                 new Launcher().launch(2);
             }
@@ -286,14 +287,9 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme_(1);
-                GamePage();
-                remove(stateone);
-                remove(statetwo);
-                remove(statethree);
-                remove(statefour);
-                remove(statefive);
-                remove(home);
+                setTheme_(theme_num);
+                dispose();
+                new Launcher().launch(3);
             }
         });
         statethree.setOpaque(false);
@@ -304,14 +300,9 @@ public class PacManUI extends JFrame {
         statefour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme_(1);
-                GamePage();
-                remove(stateone);
-                remove(statetwo);
-                remove(statethree);
-                remove(statefour);
-                remove(statefive);
-                remove(home);
+                setTheme_(theme_num);
+                dispose();
+                new Launcher().launch(4);
             }
         });
         statefour.setOpaque(false);
@@ -322,14 +313,9 @@ public class PacManUI extends JFrame {
         statefive.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme_(1);
-                GamePage();
-                remove(stateone);
-                remove(statetwo);
-                remove(statethree);
-                remove(statefour);
-                remove(statefive);
-                remove(home);
+                setTheme_(theme_num);
+                dispose();
+                new Launcher().launch(5);
             }
         });
         statefive.setOpaque(false);

@@ -230,11 +230,20 @@ public class Launcher {
     }
     public void launch(int s) {
         if(s == 1){
-                setLevelMap("/state1.txt");
+                setLevelMap("/board1.txt");
             }
         if(s == 2){
-                setLevelMap("/down.txt");
+                setLevelMap("/board2.txt");
             }
+        if(s == 3){
+            setLevelMap("/board3.txt");
+        }
+        if(s == 4){
+            setLevelMap("/board4.txt");
+        }
+        if(s == 5){
+            setLevelMap("/board5.txt");
+        }
         makeGame();
         PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);

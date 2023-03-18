@@ -130,52 +130,67 @@ public abstract class Game implements LevelObserver {
         JLabel label = new JLabel("End");
         String score = ScorePanel.DEFAULT_SCORE_FORMATTER.format(getPlayers().get(0));
         JLabel label2 = new JLabel( "Your Final " + score + " !");
-        JButton okButton = new JButton("Restart");
-        JButton cancelButton = new JButton("Home");
+        JButton retryButton = new JButton("Restart");
+        JButton homeButton = new JButton("Home");
+        JButton NextStateButton = new JButton("NextState");
+        retryButton.setBounds(50, 160, 60, 60);
+        retryButton.setOpaque(true);
+        retryButton.setContentAreaFilled(true);
+        retryButton.setBorderPainted(true);
+
+        NextStateButton.setBounds(100, 200, 60, 60);
+        NextStateButton.setOpaque(true);
+        NextStateButton.setContentAreaFilled(true);
+        NextStateButton.setBorderPainted(true);
+
+        homeButton.setBounds(150, 100, 60, 60);
+        homeButton.setOpaque(true);
+        homeButton.setContentAreaFilled(true);
+        homeButton.setBorderPainted(true);
 
 
-        GridBagLayout gridBagLayout = new GridBagLayout();
-        gridBagLayout.columnWidths = new int[] {0, 0, 0};
-        gridBagLayout.rowHeights = new int[] {0, 0, 0, 0};
-        gridBagLayout.columnWeights = new double[] {0.0, 0.0, Double.MIN_VALUE};
-        gridBagLayout.rowWeights = new double[] {0.0, 0.0, 0.0, Double.MIN_VALUE};
-        frame.getContentPane().setLayout(gridBagLayout);
-
-        GridBagConstraints gbc_label1 = new GridBagConstraints();
-        gbc_label1.insets = new Insets(5, 0, 0, 0);
-        gbc_label1.gridx = 1;
-        gbc_label1.gridy = 1;
-        frame.getContentPane().add(label, gbc_label1);
-
-        GridBagConstraints gbc_label2 = new GridBagConstraints();
-        gbc_label2.insets = new Insets(0, 0, 0, 0);
-        gbc_label2.gridx = 1;
-        gbc_label2.gridy = 2;
-        frame.getContentPane().add(label2, gbc_label2);
-
-        GridBagConstraints gbc_btn1 = new GridBagConstraints();
-        gbc_btn1.insets = new Insets(0, 10, 0, 0);
-        gbc_btn1.gridx = 0;
-        gbc_btn1.gridy = 3;
-        frame.getContentPane().add(okButton, gbc_btn1);
-
-        GridBagConstraints gbc_btn2 = new GridBagConstraints();
-        gbc_btn2.insets = new Insets(0, 0, 0, 0);
-        gbc_btn2.gridx = 2;
-        gbc_btn2.gridy = 3;
-        frame.getContentPane().add(cancelButton, gbc_btn2);
+//        GridBagLayout gridBagLayout = new GridBagLayout();
+//        gridBagLayout.columnWidths = new int[] {0, 0, 0};
+//        gridBagLayout.rowHeights = new int[] {0, 0, 0, 0};
+//        gridBagLayout.columnWeights = new double[] {0.0, 0.0, Double.MIN_VALUE};
+//        gridBagLayout.rowWeights = new double[] {0.0, 0.0, 0.0, Double.MIN_VALUE};
+//        frame.getContentPane().setLayout(gridBagLayout);
+//
+//        GridBagConstraints gbc_label1 = new GridBagConstraints();
+//        gbc_label1.insets = new Insets(5, 0, 0, 0);
+//        gbc_label1.gridx = 1;
+//        gbc_label1.gridy = 1;
+//        frame.getContentPane().add(label, gbc_label1);
+//
+//        GridBagConstraints gbc_label2 = new GridBagConstraints();
+//        gbc_label2.insets = new Insets(0, 0, 0, 0);
+//        gbc_label2.gridx = 1;
+//        gbc_label2.gridy = 2;
+//        frame.getContentPane().add(label2, gbc_label2);
+//
+//        GridBagConstraints gbc_btn1 = new GridBagConstraints();
+//        gbc_btn1.insets = new Insets(0, 10, 0, 0);
+//        gbc_btn1.gridx = 0;
+//        gbc_btn1.gridy = 3;
+//        frame.getContentPane().add(okButton, gbc_btn1);
+//
+//        GridBagConstraints gbc_btn2 = new GridBagConstraints();
+//        gbc_btn2.insets = new Insets(0, 0, 0, 0);
+//        gbc_btn2.gridx = 2;
+//        gbc_btn2.gridy = 3;
+//        frame.getContentPane().add(cancelButton, gbc_btn2);
 
 
 //        panel.add(label);
 //        panel.add(label2);
-//        panel.add(okButton);
-//        panel.add(cancelButton);
+        frame.add(retryButton);
+        frame.add(NextStateButton);
         frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.setSize(300, 300);
         frame.setVisible(true);
-        okButton.addActionListener(new ActionListener() {
+        retryButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 Launcher.dispose();
@@ -184,7 +199,17 @@ public abstract class Game implements LevelObserver {
             }
         });
 
-        cancelButton.addActionListener(new ActionListener() {
+        NextStateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                Launcher.dispose();
+                new Launcher().launch(true);
+
+
+
+            }
+        });
+        homeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 Launcher.dispose();

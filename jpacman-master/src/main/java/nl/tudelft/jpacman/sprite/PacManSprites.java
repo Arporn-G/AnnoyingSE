@@ -7,6 +7,7 @@ import java.util.Map;
 import nl.tudelft.jpacman.PacmanConfigurationException;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.npc.ghost.GhostColor;
+import nl.tudelft.jpacman.ui.PacManUI;
 
 /**
  * Sprite Store containing the classic Pac-Man sprites.
@@ -14,6 +15,7 @@ import nl.tudelft.jpacman.npc.ghost.GhostColor;
  * @author Jeroen Roosen 
  */
 public class PacManSprites extends SpriteStore {
+    PacManUI theme_set;
 
     /**
      * The sprite files are vertically stacked series for each direction, this
@@ -55,8 +57,22 @@ public class PacManSprites extends SpriteStore {
      * @return A map of animated Pac-Man sprites for all directions.
      */
     public Map<Direction, Sprite> getPacmanSprites() {
-        return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+        if (theme_set.getTheme_() == 2) {
+
+            return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
+        if (theme_set.getTheme_() == 3) {
+            return directionSprite("/sprite/farm/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
+        if (theme_set.getTheme_() == 4) {
+            return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
+
+        else {
+            return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+        }
     }
+
 
     /**
      * @return The animation of a dying Pac-Man.
@@ -107,30 +123,74 @@ public class PacManSprites extends SpriteStore {
     public Map<Direction, Sprite> getGhostSprite(GhostColor color) {
         assert color != null;
 
-        String resource = "/sprite/ghost_" + color.name().toLowerCase()
-            + ".png";
-        return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        if (theme_set.getTheme_() == 2) {
+            String resource = "/sprite/ghost_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+
+        if (theme_set.getTheme_() == 3) {
+            String resource = "/sprite/farm/ghost_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+
+        if (theme_set.getTheme_() == 4) {
+            String resource = "/sprite/ghost_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
+
+        else {
+            String resource = "/sprite/ghost_" + color.name().toLowerCase()
+                + ".png";
+            return directionSprite(resource, GHOST_ANIMATION_FRAMES);
+        }
     }
 
     /**
      * @return The sprite for the wall.
      */
     public Sprite getWallSprite() {
-        return loadSprite("/sprite/wall.png");
+
+        if (theme_set.getTheme_() == 2)
+            return loadSprite("/sprite/wall.png");
+        else if (theme_set.getTheme_() == 3)
+            return loadSprite("/sprite/farm/wall.png");
+        else if (theme_set.getTheme_() == 4)
+            return loadSprite("/sprite/wall.png");
+        else
+            return loadSprite("/sprite/wall.png");
     }
 
     /**
      * @return The sprite for the ground.
      */
     public Sprite getGroundSprite() {
-        return loadSprite("/sprite/floor.png");
+
+        if (theme_set.getTheme_() == 2)
+            return loadSprite("/sprite/floor.png");
+        else if (theme_set.getTheme_() == 3)
+            return loadSprite("/sprite/farm/floor.png");
+        else if (theme_set.getTheme_() == 4)
+            return loadSprite("/sprite/floor.png");
+        else
+            return loadSprite("/sprite/floor.png");
     }
 
     /**
      * @return The sprite for the
      */
     public Sprite getPelletSprite() {
-        return loadSprite("/sprite/pellet.png");
+
+        if (theme_set.getTheme_() == 2)
+            return loadSprite("/sprite/pellet.png");
+        else if (theme_set.getTheme_() == 3)
+            return loadSprite("/sprite/farm/pellet.png");
+        else if (theme_set.getTheme_() == 4)
+            return loadSprite("/sprite/pellet.png");
+        else
+            return loadSprite("/sprite/pellet.png");
     }
 
     /**

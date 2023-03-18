@@ -14,6 +14,7 @@ import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.game.GameFactory;
 import nl.tudelft.jpacman.level.Level;
+import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
 
 /**
@@ -36,6 +37,8 @@ public class PacManUI extends JFrame {
      * Default serialisation UID.
      */
     private static final long serialVersionUID = 1L;
+
+    private static int theme_num = 1;
 
     /**
      * The desired frame rate interval for the graphics in milliseconds, 40
@@ -118,13 +121,44 @@ public class PacManUI extends JFrame {
         setTitle("JPacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/1.png");
+        JButton settingpage = new JButton();
+        JButton exit = new JButton();
+        JButton PlayGame = new JButton();
+
+        //    private PacManSprites setSprites;
+        String themeHome;
+        if(theme_num == 2) {
+            themeHome = "dungeon/home"; /*dun*/
+            settingpage.setBounds(249, 329, 100, 45);
+            exit.setBounds(249, 405, 100, 45);
+            PlayGame.setBounds(190, 268, 210, 30);
+        }
+        else if(theme_num ==3) {
+            themeHome = "farm/home"; /*fram*/
+            settingpage.setBounds(249, 329, 100, 45);
+            exit.setBounds(249, 405, 100, 45);
+            PlayGame.setBounds(190, 268, 210, 30);
+        }
+        else if(theme_num ==4) {
+            themeHome = "pirate/home"; /*pirate*/
+            settingpage.setBounds(249, 329, 100, 45);
+            exit.setBounds(249, 405, 100, 45);
+            PlayGame.setBounds(190, 268, 210, 30);
+        }
+        else {
+            themeHome = "1"; /*default*/
+            settingpage.setBounds(249, 329, 100, 45);
+            exit.setBounds(249, 405, 100, 45);
+            PlayGame.setBounds(190, 268, 210, 30);
+        }
+
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/"+ themeHome +".png");
         JLabel j = new JLabel(imp);
         setContentPane(j);
         revalidate();
 
         // Just for refresh :) Not optional!
-        JButton settingpage = new JButton();
+
         settingpage.addActionListener(new ActionListener() {
 
             @Override
@@ -134,13 +168,12 @@ public class PacManUI extends JFrame {
 
             }
         });
-        settingpage.setBounds(249,329,100,45);
+
         settingpage.setOpaque(false);
         settingpage.setContentAreaFilled(false);
         settingpage.setBorderPainted(false);
         add(settingpage);
 
-        JButton exit = new JButton();
         exit.addActionListener(new ActionListener() {
 
             @Override
@@ -150,13 +183,11 @@ public class PacManUI extends JFrame {
             }
         });
 
-        exit.setBounds(249,405,100,45);
         exit.setOpaque(false);
         exit.setContentAreaFilled(false);
         exit.setBorderPainted(false);
         add(exit);
 
-        JButton PlayGame = new JButton();
         PlayGame.addActionListener(new ActionListener() {
 
             @Override
@@ -167,7 +198,6 @@ public class PacManUI extends JFrame {
                 remove(PlayGame);
             }
         });
-        PlayGame.setBounds(190,268,210,30);
         PlayGame.setOpaque(false);
         PlayGame.setContentAreaFilled(false);
         PlayGame.setBorderPainted(false);
@@ -338,6 +368,67 @@ public class PacManUI extends JFrame {
         JLabel j4 = new JLabel(imp4);
         setContentPane(j4);
         setSize(600,600);
+        JButton theme1 = new JButton();
+        JButton theme2 = new JButton();
+        JButton theme3 = new JButton();
+        JButton theme4 = new JButton();
+
+        theme1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(1);
+                Homepage();
+
+            }
+        });
+        theme1.setBounds(145,150,95,95);
+        theme1.setOpaque(false);
+        theme1.setContentAreaFilled(false);
+        theme1.setBorderPainted(false);
+        add(theme1);
+        theme2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(2);
+                Homepage();
+
+            }
+        });
+        theme2.setBounds(310,150,95,95);
+        theme2.setOpaque(false);
+        theme2.setContentAreaFilled(false);
+        theme2.setBorderPainted(false);
+        add(theme2);
+        theme3.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(3);
+                dispose();
+                new Launcher().launch(true);
+            }
+        });
+        theme3.setBounds(145,310,95,95);
+        theme3.setOpaque(false);
+        theme3.setContentAreaFilled(false);
+        theme3.setBorderPainted(false);
+        add(theme3);
+        theme4.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(4);
+                Homepage();
+
+            }
+        });
+        theme4.setBounds(310,310,95,95);
+        theme4.setOpaque(false);
+        theme4.setContentAreaFilled(false);
+        theme4.setBorderPainted(false);
+        add(theme4);
 
         JButton backtosetting = new JButton();
         backtosetting.addActionListener(new ActionListener() {
@@ -352,6 +443,13 @@ public class PacManUI extends JFrame {
         backtosetting.setContentAreaFilled(false);
         backtosetting.setBorderPainted(false);
         add(backtosetting);
+    }
+    public static int getTheme_() {
+        return theme_num;
+    }
+
+    public static void setTheme_(int theme_num) {
+        PacManUI.theme_num = theme_num;
     }
 
 

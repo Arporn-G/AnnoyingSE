@@ -89,7 +89,7 @@ public class PacManUiBuilder {
             JLabel popupLabel = new JLabel("Game Paused");
             JButton resumeButton = new JButton("Resume");
             JButton restartButton = new JButton("Restart");
-            JButton exitButton = new JButton("Exit");
+            JButton exitButton = new JButton("Home");
             popupFrame.setBounds(0, 0, 300, 300);
 
 
@@ -127,8 +127,8 @@ public class PacManUiBuilder {
             // Exit button action listener
             exitButton.addActionListener(e -> {
                 popupFrame.dispose();
-                game.stop();
-                System.exit(0);
+                Launcher.dispose();
+                new Launcher().launch(true);
             });
         });
 

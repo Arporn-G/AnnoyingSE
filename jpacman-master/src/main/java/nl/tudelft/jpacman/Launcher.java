@@ -34,8 +34,8 @@ public class Launcher {
 
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    public static final String DEFAULT_MAP = "/board.txt";
-    private String levelMap = DEFAULT_MAP;
+    private static String levelMap = "/up.txt";
+
 
     private static PacManUI pacManUI;
     private Game game;
@@ -59,6 +59,10 @@ public class Launcher {
      */
     protected String getLevelMap() {
         return levelMap;
+    }
+
+    protected void setLevelMap(String map) {
+        levelMap = map;
     }
 
     /**
@@ -196,11 +200,19 @@ public class Launcher {
         return players.get(0);
     }
 
+    public void launch(){
+        makeGame();
+        PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
+        addSinglePlayerKeys(builder);
+        pacManUI = builder.build(getGame());
+        pacManUI.start();
+    }
     /**
      * Creates and starts a JPac-Man game.
      */
+
     public void launch(boolean m) {
-        if(m == true){
+        if (m == true) {
             makeGame();
             PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
             addSinglePlayerKeys(builder);
@@ -208,13 +220,26 @@ public class Launcher {
             pacManUI.start();
         }
 
-        if(m == false){
+        if (m == false) {
             makeGame();
             PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
             addSinglePlayerKeys(builder);
             pacManUI = builder.build(getGame());
             pacManUI.restart();
         }
+    }
+    public void launch(int s) {
+        if(s == 1){
+                setLevelMap("/state1.txt");
+            }
+        if(s == 2){
+                setLevelMap("/down.txt");
+            }
+        makeGame();
+        PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
+        addSinglePlayerKeys(builder);
+        pacManUI = builder.build(getGame());
+        pacManUI.restart();
 
 
 

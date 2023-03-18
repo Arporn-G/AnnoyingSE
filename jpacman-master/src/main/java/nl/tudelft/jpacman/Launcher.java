@@ -34,7 +34,7 @@ public class Launcher {
 
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    private static String levelMap = "/up.txt";
+    private static String levelMap = "/board1.txt";
 
 
     private static PacManUI pacManUI;

@@ -129,21 +129,21 @@ public class PacManUI extends JFrame {
         String themeHome;
         if(theme_num == 2) {
             themeHome = "dungeon/home"; /*dun*/
-            settingpage.setBounds(249, 329, 100, 45);
-            exit.setBounds(249, 405, 100, 45);
-            PlayGame.setBounds(190, 268, 210, 30);
+            settingpage.setBounds(184, 320, 228, 78);
+            exit.setBounds(184, 402, 228, 78);
+            PlayGame.setBounds(184, 232, 228, 78);
         }
         else if(theme_num ==3) {
             themeHome = "farm/home"; /*fram*/
-            settingpage.setBounds(249, 329, 100, 45);
-            exit.setBounds(249, 405, 100, 45);
-            PlayGame.setBounds(190, 268, 210, 30);
+            settingpage.setBounds(214, 320, 180, 70);
+            exit.setBounds(214, 394, 180, 70);
+            PlayGame.setBounds(214, 252, 180, 70);
         }
         else if(theme_num ==4) {
             themeHome = "pirate/home"; /*pirate*/
-            settingpage.setBounds(249, 329, 100, 45);
-            exit.setBounds(249, 405, 100, 45);
-            PlayGame.setBounds(190, 268, 210, 30);
+            settingpage.setBounds(110, 329, 150, 60);
+            exit.setBounds(280, 329, 150, 60);
+            PlayGame.setBounds(120, 228, 230, 75);
         }
         else {
             themeHome = "1"; /*default*/
@@ -164,7 +164,7 @@ public class PacManUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 j.setIcon(null);
-                Settingpage();
+                ChoosethemePage();
 
             }
         });
@@ -192,7 +192,7 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                GamePage();
+                Statepage();
                 remove(settingpage);
                 remove(exit);
                 remove(PlayGame);
@@ -207,15 +207,171 @@ public class PacManUI extends JFrame {
 
     }
 
+    public void Statepage() {
+        currentPage = "Statepage";
+        setTitle("JPacman");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        JButton stateone = new JButton();
+        JButton statetwo = new JButton();
+        JButton statethree = new JButton();
+        JButton statefour = new JButton();
+        JButton statefive = new JButton();
+        JButton home = new JButton();
+
+        String stateHome;
+        if (theme_num == 2) {
+            stateHome = "dungeon/stage"; /*dun*/
+            stateone.setBounds(368, 540, 100, 40);
+            statetwo.setBounds(35, 375, 100, 40);
+            statethree.setBounds(466, 375, 100, 40);
+            statefour.setBounds(35, 215, 100, 40);
+            statefive.setBounds(466, 215, 100, 40);
+            home.setBounds(10, 450, 125, 40);
+        } else if (theme_num == 3) {
+            stateHome = "farm/stage"; /*fram*/
+            stateone.setBounds(23, 355, 100, 120);
+            statetwo.setBounds(160, 350, 100, 120);
+            statethree.setBounds(240, 470, 100, 120);
+            statefour.setBounds(289, 267, 100, 120);
+            statefive.setBounds(435, 265, 100, 120);
+            home.setBounds(10, 500, 153, 53);
+        } else if (theme_num == 4) {
+            stateHome = "pirate/state"; /*pirate*/
+            stateone.setBounds(75, 40, 155, 163);
+            statetwo.setBounds(414, 28, 144, 188);
+            statethree.setBounds(245, 190, 155, 163);
+            statefour.setBounds(30, 300, 155, 163);
+            statefive.setBounds(423, 320, 149, 266);
+            home.setBounds(240, 500, 113, 58);
+        } else {
+            stateHome = "5"; /*default*/
+            stateone.setBounds(100, 20, 150, 150);
+            statetwo.setBounds(340, 40, 150, 150);
+            statethree.setBounds(155, 200, 150, 150);
+            statefour.setBounds(120, 390, 150, 150);
+            statefive.setBounds(390, 300, 150, 150);
+            home.setBounds(409, 520, 113, 58);
+        }
+
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/" + stateHome + ".png");
+        JLabel j = new JLabel(imp);
+        setContentPane(j);
+        revalidate();
+
+        stateone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GamePage();
+                remove(stateone);
+                remove(statetwo);
+                remove(statethree);
+                remove(statefour);
+                remove(statefive);
+                remove(home);
+            }
+        });
+        stateone.setOpaque(false);
+        stateone.setContentAreaFilled(false);
+        stateone.setBorderPainted(false);
+        add(stateone);
+
+        statetwo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(1);
+                GamePage();
+                remove(stateone);
+                remove(statetwo);
+                remove(statethree);
+                remove(statefour);
+                remove(statefive);
+                remove(home);
+            }
+        });
+        statetwo.setOpaque(false);
+        statetwo.setContentAreaFilled(false);
+        statetwo.setBorderPainted(false);
+        add(statetwo);
+        statethree.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(1);
+                GamePage();
+                remove(stateone);
+                remove(statetwo);
+                remove(statethree);
+                remove(statefour);
+                remove(statefive);
+                remove(home);
+            }
+        });
+        statethree.setOpaque(false);
+        statethree.setContentAreaFilled(false);
+        statethree.setBorderPainted(false);
+        add(statethree);
+
+        statefour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(1);
+                GamePage();
+                remove(stateone);
+                remove(statetwo);
+                remove(statethree);
+                remove(statefour);
+                remove(statefive);
+                remove(home);
+            }
+        });
+        statefour.setOpaque(false);
+        statefour.setContentAreaFilled(false);
+        statefour.setBorderPainted(false);
+        add(statefour);
+
+        statefive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTheme_(1);
+                GamePage();
+                remove(stateone);
+                remove(statetwo);
+                remove(statethree);
+                remove(statefour);
+                remove(statefive);
+                remove(home);
+            }
+        });
+        statefive.setOpaque(false);
+        statefive.setContentAreaFilled(false);
+        statefive.setBorderPainted(false);
+        add(statefive);
+        home.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Homepage();
+            }
+        });
+        home.setOpaque(false);
+        home.setContentAreaFilled(false);
+        home.setBorderPainted(false);
+        add(home);
+    }
+
+
+
+    /*
     public void Settingpage(){
         currentPage = "Settingpage";
         setTitle("JPacman");
-        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/stbg.png");
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/4.png");
         JLabel j1 = new JLabel(imp);
         setContentPane(j1);
 
         // Just for refresh :) Not optional!
-
+    /*
         JButton stateBtn = new JButton();
         stateBtn.addActionListener(new ActionListener() {
 
@@ -272,7 +428,7 @@ public class PacManUI extends JFrame {
         this.setVisible(true);
 
 
-    }
+    }*/
 
     public void GamePage() {
         /*getContentPane().removeAll();
@@ -337,10 +493,11 @@ public class PacManUI extends JFrame {
         contentPanel.add(this.boardPanel, BorderLayout.CENTER);
         pack();
     }
+    /*
     public void ChoosestagePage(){
         currentPage = "Choosestagepage";
         setTitle("JPacman");
-        ImageIcon imp3 = new ImageIcon("./src/main/resources/sprite/3.png");
+        ImageIcon imp3 = new ImageIcon("./src/main/resources/sprite/4.png");
         JLabel j3 = new JLabel(imp3);
         setContentPane(j3);
         setSize(600,600);
@@ -351,7 +508,7 @@ public class PacManUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Settingpage();
+                Homepage();
 
             }
         });
@@ -360,7 +517,7 @@ public class PacManUI extends JFrame {
         backtosetting.setContentAreaFilled(false);
         backtosetting.setBorderPainted(false);
         add(backtosetting);
-    }
+    }*/
     public void ChoosethemePage(){
         currentPage = "Choosethemepage";
         setTitle("JPacman");
@@ -382,7 +539,7 @@ public class PacManUI extends JFrame {
 
             }
         });
-        theme1.setBounds(145,150,95,95);
+        theme1.setBounds(100,90,150,150);
         theme1.setOpaque(false);
         theme1.setContentAreaFilled(false);
         theme1.setBorderPainted(false);
@@ -396,7 +553,7 @@ public class PacManUI extends JFrame {
 
             }
         });
-        theme2.setBounds(310,150,95,95);
+        theme2.setBounds(340,90,150,150);
         theme2.setOpaque(false);
         theme2.setContentAreaFilled(false);
         theme2.setBorderPainted(false);
@@ -410,7 +567,7 @@ public class PacManUI extends JFrame {
                 new Launcher().launch(true);
             }
         });
-        theme3.setBounds(145,310,95,95);
+        theme3.setBounds(100,260,150,150);
         theme3.setOpaque(false);
         theme3.setContentAreaFilled(false);
         theme3.setBorderPainted(false);
@@ -424,7 +581,7 @@ public class PacManUI extends JFrame {
 
             }
         });
-        theme4.setBounds(310,310,95,95);
+        theme4.setBounds(340,260,150,150);
         theme4.setOpaque(false);
         theme4.setContentAreaFilled(false);
         theme4.setBorderPainted(false);
@@ -435,7 +592,7 @@ public class PacManUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Settingpage();
+                Homepage();
             }
         });
         backtosetting.setBounds(237,444,110,50);

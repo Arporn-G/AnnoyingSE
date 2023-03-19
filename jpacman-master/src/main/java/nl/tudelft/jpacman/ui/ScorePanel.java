@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.level.Player;
 
 /**
@@ -87,7 +88,7 @@ public class ScorePanel extends JPanel {
 
         for (int i = 1; i <= players.size(); i++) {
 //            add(new JLabel("Player " + i, JLabel.CENTER));
-            JLabel playerTextLabel = new JLabel("Player " + i, JLabel.LEFT);
+            JLabel playerTextLabel = new JLabel("State " + Launcher.getLevelstate(), JLabel.LEFT);
             playerTextLabel.setForeground(Color.WHITE);
             playerTextLabel.setFont(pixelMplusRegular);
             add(playerTextLabel);

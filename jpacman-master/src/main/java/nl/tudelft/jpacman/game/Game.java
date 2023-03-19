@@ -132,18 +132,18 @@ public abstract class Game implements LevelObserver {
 //        JLabel label2 = new JLabel( "Your Final " + score + " !");
         JButton retryButton = new JButton("Restart");
         JButton homeButton = new JButton("Home");
-        JButton NextStateButton = new JButton("NextState");
-        retryButton.setBounds(50, 160, 60, 60);
+        //JButton NextStateButton = new JButton("NextState");
+        retryButton.setBounds(80, 80, 135, 65);
         retryButton.setOpaque(true);
         retryButton.setContentAreaFilled(true);
         retryButton.setBorderPainted(true);
 
-        NextStateButton.setBounds(100, 200, 60, 60);
-        NextStateButton.setOpaque(true);
-        NextStateButton.setContentAreaFilled(true);
-        NextStateButton.setBorderPainted(true);
+        //NextStateButton.setBounds(100, 200, 60, 60);
+        //NextStateButton.setOpaque(true);
+        //NextStateButton.setContentAreaFilled(true);
+        //NextStateButton.setBorderPainted(true);
 
-        homeButton.setBounds(150, 100, 60, 60);
+        homeButton.setBounds(80, 160, 135, 65);
         homeButton.setOpaque(true);
         homeButton.setContentAreaFilled(true);
         homeButton.setBorderPainted(true);
@@ -164,7 +164,7 @@ public abstract class Game implements LevelObserver {
         JLabel j = new JLabel(imp);
         frame.setContentPane(j);
         frame.add(retryButton);
-        frame.add(NextStateButton);
+        frame.add(homeButton);
         frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
@@ -179,16 +179,16 @@ public abstract class Game implements LevelObserver {
             }
         });
 
-        NextStateButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                Launcher.dispose();
-                new Launcher().launch(true);
+        //NextStateButton.addActionListener(new ActionListener() {
+        //    public void actionPerformed(ActionEvent e) {
+        //        frame.setVisible(false);
+        //        Launcher.dispose();
+        //        new Launcher().launch(true);
 
 
 
-            }
-        });
+        //    }
+       // });
         homeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);

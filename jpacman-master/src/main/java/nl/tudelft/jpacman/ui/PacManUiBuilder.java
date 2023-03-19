@@ -123,7 +123,6 @@ public class PacManUiBuilder {
             popupFrame.setSize(300, 300);
             popupFrame.setVisible(true);
 
-
             // Resume button action listener
             resumeButton.addActionListener(e -> {
                 popupFrame.dispose();

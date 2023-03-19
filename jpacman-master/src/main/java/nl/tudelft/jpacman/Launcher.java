@@ -255,7 +255,7 @@ public class Launcher {
             setLevelstate(4);
         }
         if(s == 5){
-            setLevelMap("/board5.txt");
+            setLevelMap("/board5-test.txt");
             setLevelstate(5);
         }
         makeGame();

@@ -29,17 +29,17 @@ class ButtonPanel extends JPanel {
      */
     Font pixelMplusRegular, pixelMplusBold;
 
-    Image img;
-    ButtonPanel() {
-        img = new ImageIcon("sprite/1.png").getImage();
-        this.setPreferredSize(new Dimension(600,200));
-    }
-    @Override public void paintComponent(Graphics grphcs) {
-        Graphics2D g2d = (Graphics2D) grphcs;
-//        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//        super.paintComponent(grphcs);
-        g2d.drawImage(img, 0, 400, 600, 200, null);
-    }
+//    Image img;
+//    ButtonPanel() {
+//        img = new ImageIcon("sprite/1.png").getImage();
+//        this.setPreferredSize(new Dimension(600,200));
+//    }
+//    @Override public void paintComponent(Graphics grphcs) {
+//        Graphics2D g2d = (Graphics2D) grphcs;
+////        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+////        super.paintComponent(grphcs);
+//        g2d.drawImage(img, 0, 400, 600, 200, null);
+//    }
 
 
     private boolean over;

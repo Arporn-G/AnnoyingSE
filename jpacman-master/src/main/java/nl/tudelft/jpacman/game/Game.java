@@ -150,49 +150,71 @@ public abstract class Game implements LevelObserver {
         else {
             path = "";
         }
+        if(laucher.getLevelstate() == 5){
+            ImageIcon imp = new ImageIcon("./src/main/resources/sprite"+ path +"/win5.png");
+            JLabel j = new JLabel(imp);
+            frame.setContentPane(j);
+            frame.add(homeButton);
+            frame.setUndecorated(true);
+            frame.setLocationRelativeTo(null);
+            frame.add(panel);
+            frame.setSize(300, 300);
+            frame.setVisible(true);
+            homeButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    frame.setVisible(false);
+                    Launcher.dispose();
+                    new Launcher().launch(true);
 
-        if (laucher.getLevelstate() == 1){
-            state = 2;
-        }
-        else if (laucher.getLevelstate() == 2) {
-            state = 3;
-        }
-        else if (laucher.getLevelstate() == 3) {
-            state = 4;
-        }
-        else if (laucher.getLevelstate() == 4) {
-            state = 5;
-        }
-        ImageIcon imp = new ImageIcon("./src/main/resources/sprite"+ path +"/win.png");
-        JLabel j = new JLabel(imp);
-        frame.setContentPane(j);
-        frame.add(NextStateButton);
-        frame.add(homeButton);
-        frame.setUndecorated(true);
-        frame.setLocationRelativeTo(null);
-        frame.add(panel);
-        frame.setSize(300, 300);
-        frame.setVisible(true);
-        int finalState = state;
-        NextStateButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                Launcher.dispose();
-                new Launcher().launch(finalState);
 
+
+                }
+            });
+        }else {
+            if (laucher.getLevelstate() == 1){
+                state = 2;
             }
-        });
-
-        homeButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                Launcher.dispose();
-                new Launcher().launch(true);
-
-
-
+            else if (laucher.getLevelstate() == 2) {
+                state = 3;
             }
-        });
+            else if (laucher.getLevelstate() == 3) {
+                state = 4;
+            }
+            else if (laucher.getLevelstate() == 4) {
+                state = 5;
+            }
+            ImageIcon imp = new ImageIcon("./src/main/resources/sprite"+ path +"/win.png");
+            JLabel j = new JLabel(imp);
+            frame.setContentPane(j);
+            frame.add(NextStateButton);
+            frame.add(homeButton);
+            frame.setUndecorated(true);
+            frame.setLocationRelativeTo(null);
+            frame.add(panel);
+            frame.setSize(300, 300);
+            frame.setVisible(true);
+            int finalState = state;
+            NextStateButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    frame.setVisible(false);
+                    Launcher.dispose();
+                    new Launcher().launch(finalState);
+
+                }
+            });
+
+            homeButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    frame.setVisible(false);
+                    Launcher.dispose();
+                    new Launcher().launch(true);
+
+
+
+                }
+            });
+        }
+
         // Display the frame as a pop-up window
 
     }

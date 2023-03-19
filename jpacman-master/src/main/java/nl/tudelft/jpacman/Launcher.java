@@ -35,6 +35,7 @@ public class Launcher {
     private static final PacManSprites SPRITE_STORE = new PacManSprites();
 
     private static String levelMap = "/board1.txt";
+    private static int levelstate;
 
 
     private static PacManUI pacManUI;
@@ -63,6 +64,14 @@ public class Launcher {
 
     protected void setLevelMap(String map) {
         levelMap = map;
+    }
+
+    public static int getLevelstate() {
+        return levelstate;
+    }
+
+    public static void setLevelstate(int levelstate) {
+        Launcher.levelstate = levelstate;
     }
 
     /**
@@ -231,18 +240,23 @@ public class Launcher {
     public void launch(int s) {
         if(s == 1){
                 setLevelMap("/board1.txt");
+                setLevelstate(1);
             }
         if(s == 2){
                 setLevelMap("/board2.txt");
+                setLevelstate(2);
             }
         if(s == 3){
             setLevelMap("/board3.txt");
+            setLevelstate(3);
         }
         if(s == 4){
             setLevelMap("/board4.txt");
+            setLevelstate(4);
         }
         if(s == 5){
             setLevelMap("/board5.txt");
+            setLevelstate(5);
         }
         makeGame();
         PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();

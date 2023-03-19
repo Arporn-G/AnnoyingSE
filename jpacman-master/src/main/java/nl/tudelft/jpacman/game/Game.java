@@ -24,6 +24,7 @@ import javax.swing.*;
  * @author Jeroen Roosen
  */
 public abstract class Game implements LevelObserver {
+    Launcher laucher;
     PacManUI theme_num;
     /**
      * <code>true</code> if the game is in progress.
@@ -116,8 +117,86 @@ public abstract class Game implements LevelObserver {
 
     @Override
     public void levelWon() {
+        PacManUI p = new PacManUI();
         stop();
+        JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        laucher.getLevelstate();
+        frame.setBounds(0, 0, 300, 300);
+        JButton NextStateButton =new JButton();
+        JButton homeButton = new JButton();
+        NextStateButton.setBounds(80, 80, 135, 65);
+        NextStateButton.setOpaque(false);
+        NextStateButton.setContentAreaFilled(false);
+        NextStateButton.setBorderPainted(false);
+
+
+        homeButton.setBounds(80, 160, 135, 65);
+        homeButton.setOpaque(false);
+        homeButton.setContentAreaFilled(false);
+        homeButton.setBorderPainted(false);
+        String path = "";
+        int state = 0;
+
+        if (theme_num.getTheme_() == 2){
+            path = "/dungeon";
+        }
+        else if (theme_num.getTheme_() == 3) {
+            path = "/farm";
+        }
+        else if (theme_num.getTheme_() == 4) {
+            path = "/pirate";
+        }
+        else {
+            path = "";
+        }
+
+        if (laucher.getLevelstate() == 1){
+            state = 2;
+        }
+        else if (laucher.getLevelstate() == 2) {
+            state = 3;
+        }
+        else if (laucher.getLevelstate() == 3) {
+            state = 4;
+        }
+        else if (laucher.getLevelstate() == 4) {
+            state = 5;
+        }
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite"+ path +"/win.png");
+        JLabel j = new JLabel(imp);
+        frame.setContentPane(j);
+        frame.add(NextStateButton);
+        frame.add(homeButton);
+        frame.setUndecorated(true);
+        frame.setLocationRelativeTo(null);
+        frame.add(panel);
+        frame.setSize(300, 300);
+        frame.setVisible(true);
+        int finalState = state;
+        NextStateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                Launcher.dispose();
+                new Launcher().launch(finalState);
+
+            }
+        });
+
+        homeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                Launcher.dispose();
+                new Launcher().launch(true);
+
+
+
+            }
+        });
+        // Display the frame as a pop-up window
+
     }
+
 
     @Override
     public void levelLost() {

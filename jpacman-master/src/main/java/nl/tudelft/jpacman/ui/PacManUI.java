@@ -444,11 +444,14 @@ public class PacManUI extends JFrame {
         contentPanel.setLayout(new BorderLayout());
 //        contentPanel.setSize(800, 800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite/farm/home.png");
+        JLabel j = new JLabel(imp);
 //        this.setLocationRelativeTo(null);
 //        this.setResizable(false);
         contentPanel.add(this.buttonPanel, BorderLayout.SOUTH);
         contentPanel.add(this.scorePanel, BorderLayout.NORTH);
         contentPanel.add(this.boardPanel, BorderLayout.CENTER);
+
         pack();
     }
     /*

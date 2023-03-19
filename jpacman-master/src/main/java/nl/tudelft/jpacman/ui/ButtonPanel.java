@@ -94,7 +94,8 @@ class ButtonPanel extends JPanel {
         assert parent != null;
 
 //        Font sansSerifFont = new Font("MS Reference Sans Serif", Font.TRUETYPE_FONT, 24);
-//        setBackground(Color.BLACK);
+        setBackground(Color.BLACK);
+        setOpaque(true);
         over = false;
         color = new Color(33, 239, 128);
         colorOver = new Color(244, 131, 163);

@@ -239,7 +239,7 @@ public class Launcher {
     }
     public void launch(int s) {
         if(s == 1){
-                setLevelMap("/board1.txt");
+                setLevelMap("/board1-test.txt");
                 setLevelstate(1);
             }
         if(s == 2){
@@ -278,6 +278,7 @@ public class Launcher {
         assert pacManUI != null;
         pacManUI.dispose();
     }
+
 
     /**
      * Main execution method for the Launcher.

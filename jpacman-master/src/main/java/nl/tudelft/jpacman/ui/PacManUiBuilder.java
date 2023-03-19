@@ -8,6 +8,7 @@ import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
 
+
 /**
  * Builder for the JPac-Man UI.
  *
@@ -44,6 +45,7 @@ public class PacManUiBuilder {
      * Way to format the score.
      */
     private ScoreFormatter scoreFormatter = null;
+    private PacManUI theme_num;
 
     /**
      * Creates a new Pac-Man UI builder without any mapped keys or buttons.
@@ -86,29 +88,42 @@ public class PacManUiBuilder {
 
             JFrame popupFrame = new JFrame();
             JPanel popupPanel = new JPanel();
-            JButton resumeButton = new JButton("Resume");
-            JButton restartButton = new JButton("Restart");
-            JButton exitButton = new JButton("Home");
+            JButton resumeButton = new JButton();
+            JButton restartButton = new JButton();
+            JButton exitButton = new JButton();
             popupFrame.setBounds(0, 0, 300, 300);
-            ImageIcon imp = new ImageIcon("./src/main/resources/sprite/pause.png");
+            String path = "";
+            if (theme_num.getTheme_() == 2){
+                path = "/dungeon";
+            }
+            else if (theme_num.getTheme_() == 3) {
+                path = "/farm";
+            }
+            else if (theme_num.getTheme_() == 4) {
+                path = "/pirate";
+            }
+            else {
+                path = "";
+            }
+            ImageIcon imp = new ImageIcon("./src/main/resources/sprite"+ path +"/pause.png");
             JLabel j = new JLabel(imp);
             popupFrame.setContentPane(j);
 
 
             // Add components to popup panel
 //            popupPanel.add(popupLabel);
-            resumeButton.setBounds(50, 160, 60, 60);
-            exitButton.setBounds(80, 160, 60, 60);
-            popupFrame.setBounds(150, 160, 60, 60);
-            resumeButton.setOpaque(true);
-            resumeButton.setContentAreaFilled(true);
-            resumeButton.setBorderPainted(true);
-            restartButton.setOpaque(true);
-            restartButton.setContentAreaFilled(true);
-            restartButton.setBorderPainted(true);
-            exitButton.setOpaque(true);
-            exitButton.setContentAreaFilled(true);
-            exitButton.setBorderPainted(true);
+            resumeButton.setBounds(0, 100, 300, 40);
+            restartButton.setBounds(0, 170, 300, 40);
+            exitButton.setBounds(0, 235, 300, 40);
+            resumeButton.setOpaque(false);
+            resumeButton.setContentAreaFilled(false);
+            resumeButton.setBorderPainted(false);
+            restartButton.setOpaque(false);
+            restartButton.setContentAreaFilled(false);
+            restartButton.setBorderPainted(false);
+            exitButton.setOpaque(false);
+            exitButton.setContentAreaFilled(false);
+            exitButton.setBorderPainted(false);
             popupFrame.add(resumeButton);
             popupFrame.add(restartButton);
             popupFrame.add(exitButton);

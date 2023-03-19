@@ -130,13 +130,13 @@ public abstract class Game implements LevelObserver {
 //        JLabel label = new JLabel("End");
         String score = ScorePanel.DEFAULT_SCORE_FORMATTER.format(getPlayers().get(0));
 //        JLabel label2 = new JLabel( "Your Final " + score + " !");
-        JButton retryButton = new JButton("Restart");
-        JButton homeButton = new JButton("Home");
+        JButton retryButton =new JButton();
+        JButton homeButton = new JButton();
         //JButton NextStateButton = new JButton("NextState");
         retryButton.setBounds(80, 80, 135, 65);
-        retryButton.setOpaque(true);
-        retryButton.setContentAreaFilled(true);
-        retryButton.setBorderPainted(true);
+        retryButton.setOpaque(false);
+        retryButton.setContentAreaFilled(false);
+        retryButton.setBorderPainted(false);
 
         //NextStateButton.setBounds(100, 200, 60, 60);
         //NextStateButton.setOpaque(true);
@@ -144,9 +144,9 @@ public abstract class Game implements LevelObserver {
         //NextStateButton.setBorderPainted(true);
 
         homeButton.setBounds(80, 160, 135, 65);
-        homeButton.setOpaque(true);
-        homeButton.setContentAreaFilled(true);
-        homeButton.setBorderPainted(true);
+        homeButton.setOpaque(false);
+        homeButton.setContentAreaFilled(false);
+        homeButton.setBorderPainted(false);
         String path = "";
         if (theme_num.getTheme_() == 2){
             path = "/dungeon";

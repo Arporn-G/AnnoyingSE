@@ -65,7 +65,7 @@ public class PacManSprites extends SpriteStore {
             return directionSprite("/sprite/farm/pacman.png", PACMAN_ANIMATION_FRAMES);
         }
         if (theme_set.getTheme_() == 4) {
-            return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+            return directionSprite("/sprite/pirate/pacman_pirate.png", PACMAN_ANIMATION_FRAMES);
         }
 
         else {
@@ -136,8 +136,8 @@ public class PacManSprites extends SpriteStore {
         }
 
         if (theme_set.getTheme_() == 4) {
-            String resource = "/sprite/ghost_" + color.name().toLowerCase()
-                + ".png";
+            String resource = "/sprite/pirate/ghost_" + color.name().toLowerCase()
+                +"_pirate" + ".png";
             return directionSprite(resource, GHOST_ANIMATION_FRAMES);
         }
 
@@ -158,7 +158,7 @@ public class PacManSprites extends SpriteStore {
         else if (theme_set.getTheme_() == 3)
             return loadSprite("/sprite/farm/wall.png");
         else if (theme_set.getTheme_() == 4)
-            return loadSprite("/sprite/wall.png");
+            return loadSprite("/sprite/pirate/wall_pirate.png");
         else
             return loadSprite("/sprite/wall.png");
     }
@@ -173,7 +173,7 @@ public class PacManSprites extends SpriteStore {
         else if (theme_set.getTheme_() == 3)
             return loadSprite("/sprite/farm/floor.png");
         else if (theme_set.getTheme_() == 4)
-            return loadSprite("/sprite/floor.png");
+            return loadSprite("/sprite/pirate/floor_pirate.png");
         else
             return loadSprite("/sprite/floor.png");
     }
@@ -188,7 +188,7 @@ public class PacManSprites extends SpriteStore {
         else if (theme_set.getTheme_() == 3)
             return loadSprite("/sprite/farm/pellet.png");
         else if (theme_set.getTheme_() == 4)
-            return loadSprite("/sprite/pellet.png");
+            return loadSprite("/sprite/pirate/pellet_pirate.png");
         else
             return loadSprite("/sprite/pellet.png");
     }

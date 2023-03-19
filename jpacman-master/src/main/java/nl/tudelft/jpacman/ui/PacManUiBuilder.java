@@ -86,20 +86,33 @@ public class PacManUiBuilder {
 
             JFrame popupFrame = new JFrame();
             JPanel popupPanel = new JPanel();
-            JLabel popupLabel = new JLabel("Game Paused");
             JButton resumeButton = new JButton("Resume");
             JButton restartButton = new JButton("Restart");
             JButton exitButton = new JButton("Home");
             popupFrame.setBounds(0, 0, 300, 300);
+            ImageIcon imp = new ImageIcon("./src/main/resources/sprite/pause.png");
+            JLabel j = new JLabel(imp);
+            popupFrame.setContentPane(j);
 
 
             // Add components to popup panel
-            popupPanel.add(popupLabel);
-            popupPanel.add(resumeButton);
-            popupPanel.add(restartButton);
-            popupPanel.add(exitButton);
-            popupPanel.setLayout(new GridLayout(4, 1));
-            popupLabel.setHorizontalAlignment(JLabel.CENTER);
+//            popupPanel.add(popupLabel);
+            resumeButton.setBounds(50, 160, 60, 60);
+            exitButton.setBounds(80, 160, 60, 60);
+            popupFrame.setBounds(150, 160, 60, 60);
+            resumeButton.setOpaque(true);
+            resumeButton.setContentAreaFilled(true);
+            resumeButton.setBorderPainted(true);
+            restartButton.setOpaque(true);
+            restartButton.setContentAreaFilled(true);
+            restartButton.setBorderPainted(true);
+            exitButton.setOpaque(true);
+            exitButton.setContentAreaFilled(true);
+            exitButton.setBorderPainted(true);
+            popupFrame.add(resumeButton);
+            popupFrame.add(restartButton);
+            popupFrame.add(exitButton);
+
 
 
 

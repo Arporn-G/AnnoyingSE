@@ -127,9 +127,9 @@ public abstract class Game implements LevelObserver {
         JPanel panel = new JPanel();
 
         frame.setBounds(0, 0, 300, 300);
-        JLabel label = new JLabel("End");
+//        JLabel label = new JLabel("End");
         String score = ScorePanel.DEFAULT_SCORE_FORMATTER.format(getPlayers().get(0));
-        JLabel label2 = new JLabel( "Your Final " + score + " !");
+//        JLabel label2 = new JLabel( "Your Final " + score + " !");
         JButton retryButton = new JButton("Restart");
         JButton homeButton = new JButton("Home");
         JButton NextStateButton = new JButton("NextState");

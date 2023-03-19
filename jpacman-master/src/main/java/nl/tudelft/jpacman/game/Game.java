@@ -24,7 +24,7 @@ import javax.swing.*;
  * @author Jeroen Roosen
  */
 public abstract class Game implements LevelObserver {
-
+    PacManUI theme_num;
     /**
      * <code>true</code> if the game is in progress.
      */
@@ -147,42 +147,22 @@ public abstract class Game implements LevelObserver {
         homeButton.setOpaque(true);
         homeButton.setContentAreaFilled(true);
         homeButton.setBorderPainted(true);
-
-
-//        GridBagLayout gridBagLayout = new GridBagLayout();
-//        gridBagLayout.columnWidths = new int[] {0, 0, 0};
-//        gridBagLayout.rowHeights = new int[] {0, 0, 0, 0};
-//        gridBagLayout.columnWeights = new double[] {0.0, 0.0, Double.MIN_VALUE};
-//        gridBagLayout.rowWeights = new double[] {0.0, 0.0, 0.0, Double.MIN_VALUE};
-//        frame.getContentPane().setLayout(gridBagLayout);
-//
-//        GridBagConstraints gbc_label1 = new GridBagConstraints();
-//        gbc_label1.insets = new Insets(5, 0, 0, 0);
-//        gbc_label1.gridx = 1;
-//        gbc_label1.gridy = 1;
-//        frame.getContentPane().add(label, gbc_label1);
-//
-//        GridBagConstraints gbc_label2 = new GridBagConstraints();
-//        gbc_label2.insets = new Insets(0, 0, 0, 0);
-//        gbc_label2.gridx = 1;
-//        gbc_label2.gridy = 2;
-//        frame.getContentPane().add(label2, gbc_label2);
-//
-//        GridBagConstraints gbc_btn1 = new GridBagConstraints();
-//        gbc_btn1.insets = new Insets(0, 10, 0, 0);
-//        gbc_btn1.gridx = 0;
-//        gbc_btn1.gridy = 3;
-//        frame.getContentPane().add(okButton, gbc_btn1);
-//
-//        GridBagConstraints gbc_btn2 = new GridBagConstraints();
-//        gbc_btn2.insets = new Insets(0, 0, 0, 0);
-//        gbc_btn2.gridx = 2;
-//        gbc_btn2.gridy = 3;
-//        frame.getContentPane().add(cancelButton, gbc_btn2);
-
-
-//        panel.add(label);
-//        panel.add(label2);
+        String path = "";
+        if (theme_num.getTheme_() == 2){
+            path = "/dungeon";
+        }
+        else if (theme_num.getTheme_() == 3) {
+            path = "/farm";
+        }
+        else if (theme_num.getTheme_() == 4) {
+            path = "/pirate";
+        }
+        else {
+            path = "";
+        }
+        ImageIcon imp = new ImageIcon("./src/main/resources/sprite"+ path +"/end.png");
+        JLabel j = new JLabel(imp);
+        frame.setContentPane(j);
         frame.add(retryButton);
         frame.add(NextStateButton);
         frame.setUndecorated(true);

@@ -59,7 +59,7 @@ public class PacManSprites extends SpriteStore {
     public Map<Direction, Sprite> getPacmanSprites() {
         if (theme_set.getTheme_() == 2) {
 
-            return directionSprite("/sprite/pacman.png", PACMAN_ANIMATION_FRAMES);
+            return directionSprite("/sprite/dungeon/pacman.png", PACMAN_ANIMATION_FRAMES);
         }
         if (theme_set.getTheme_() == 3) {
             return directionSprite("/sprite/farm/pacman.png", PACMAN_ANIMATION_FRAMES);
@@ -124,7 +124,7 @@ public class PacManSprites extends SpriteStore {
         assert color != null;
 
         if (theme_set.getTheme_() == 2) {
-            String resource = "/sprite/ghost_" + color.name().toLowerCase()
+            String resource = "/sprite/dungeon/ghost_" + color.name().toLowerCase()
                 + ".png";
             return directionSprite(resource, GHOST_ANIMATION_FRAMES);
         }
@@ -154,7 +154,7 @@ public class PacManSprites extends SpriteStore {
     public Sprite getWallSprite() {
 
         if (theme_set.getTheme_() == 2)
-            return loadSprite("/sprite/wall.png");
+            return loadSprite("/sprite/dungeon/wall.png");
         else if (theme_set.getTheme_() == 3)
             return loadSprite("/sprite/farm/wall.png");
         else if (theme_set.getTheme_() == 4)
@@ -169,7 +169,7 @@ public class PacManSprites extends SpriteStore {
     public Sprite getGroundSprite() {
 
         if (theme_set.getTheme_() == 2)
-            return loadSprite("/sprite/floor.png");
+            return loadSprite("/sprite/dungeon/floor.png");
         else if (theme_set.getTheme_() == 3)
             return loadSprite("/sprite/farm/floor.png");
         else if (theme_set.getTheme_() == 4)
@@ -184,7 +184,7 @@ public class PacManSprites extends SpriteStore {
     public Sprite getPelletSprite() {
 
         if (theme_set.getTheme_() == 2)
-            return loadSprite("/sprite/pellet.png");
+            return loadSprite("/sprite/dungeon/pellet.png");
         else if (theme_set.getTheme_() == 3)
             return loadSprite("/sprite/farm/pellet.png");
         else if (theme_set.getTheme_() == 4)

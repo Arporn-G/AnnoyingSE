@@ -27,7 +27,7 @@ public class ScorePanel extends JPanel {
      * Default serialisation ID.
      */
     private static final long serialVersionUID = 1L;
-
+    private Image background;
     /**
      * The map of players and the labels their scores are on.
      */
@@ -37,7 +37,7 @@ public class ScorePanel extends JPanel {
      * The default way in which the score is shown.
      */
     public static final ScoreFormatter DEFAULT_SCORE_FORMATTER =
-        (Player player) -> String.format("Score: %3d", player.getScore());
+        (Player player) -> String.format("  Score: %1d", player.getScore());
 
     /**
      * The way to format the score information.
@@ -62,7 +62,11 @@ public class ScorePanel extends JPanel {
         int rows = 4, cols = players.size();
 //        setLayout(new GridLayout(2, players.size()));
         setLayout(new GridLayout(rows, cols, 0, 0));
+        setPreferredSize(new Dimension(600,100));
 //        setBounds(300, 200, 600, 600);
+        background = new ImageIcon("./src/main/resources/sprite/up.png").getImage();
+
+
 
         try {
             InputStream is = getClass().getResourceAsStream("/fonts/PixelMplus10-Regular.ttf");
@@ -88,7 +92,7 @@ public class ScorePanel extends JPanel {
 
         for (int i = 1; i <= players.size(); i++) {
 //            add(new JLabel("Player " + i, JLabel.CENTER));
-            JLabel playerTextLabel = new JLabel("State " + Launcher.getLevelstate(), JLabel.LEFT);
+            JLabel playerTextLabel = new JLabel("  State " + Launcher.getLevelstate(), JLabel.LEFT);
             playerTextLabel.setForeground(Color.WHITE);
             playerTextLabel.setFont(pixelMplusRegular);
             add(playerTextLabel);
@@ -120,7 +124,7 @@ public class ScorePanel extends JPanel {
             Player player = entry.getKey();
             String score = "";
             if (!player.isAlive()) {
-                score = "You died. ";
+                score = "  You died. ";
             }
             score += scoreFormatter.format(player);
             entry.getValue().setText(score);
@@ -147,5 +151,13 @@ public class ScorePanel extends JPanel {
     public void setScoreFormatter(ScoreFormatter scoreFormatter) {
         assert scoreFormatter != null;
         this.scoreFormatter = scoreFormatter;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Draw the background image
+        g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
     }
 }

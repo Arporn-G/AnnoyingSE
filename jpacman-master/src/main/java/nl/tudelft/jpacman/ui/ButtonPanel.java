@@ -28,19 +28,7 @@ class ButtonPanel extends JPanel {
      * @param parent The parent frame, used to return window focus.
      */
     Font pixelMplusRegular, pixelMplusBold;
-
-//    Image img;
-//    ButtonPanel() {
-//        img = new ImageIcon("sprite/1.png").getImage();
-//        this.setPreferredSize(new Dimension(600,200));
-//    }
-//    @Override public void paintComponent(Graphics grphcs) {
-//        Graphics2D g2d = (Graphics2D) grphcs;
-////        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-////        super.paintComponent(grphcs);
-//        g2d.drawImage(img, 0, 400, 600, 200, null);
-//    }
-
+    private Image background;
 
     private boolean over;
     private Color color, colorOver, colorClick, borderColor;
@@ -94,8 +82,9 @@ class ButtonPanel extends JPanel {
         assert parent != null;
 
 //        Font sansSerifFont = new Font("MS Reference Sans Serif", Font.TRUETYPE_FONT, 24);
-        setBackground(Color.BLACK);
-        setOpaque(true);
+        setPreferredSize(new Dimension(600,100));
+//        setBounds(300, 200, 600, 600);
+        background = new ImageIcon("./src/main/resources/sprite/button.png").getImage();
         over = false;
         color = new Color(33, 239, 128);
         colorOver = new Color(244, 131, 163);
@@ -142,5 +131,12 @@ class ButtonPanel extends JPanel {
     }
     public void mouseEntered(MouseEvent evt) {
 
+    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Draw the background image
+        g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
     }
 }

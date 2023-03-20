@@ -143,8 +143,45 @@ Scenario S4.2: Restart the game.
 Given the game is suspended;
 When  the player hits the "Start" button;
 Then  the game is resumed.
+
+Scenario S4.3: Exit the game.
+Given the game is suspended;
+When the player hits the "Exit" button;
+Then  the game is return to Home Page.
+```
+#### Story 5: Choose a theme
+```
+As a player,
+ I want to change the theme of the game;
+So that Game will change the theme to I choose .
+
+Scenario S5.1: change a theme.
+Given Choose theme page is opened;
+When  the player clicks the "Choose theme" button;
+Then  the player can choose the theme that they want.
 ```
 
+#### Story 6: Choose a state
+```
+As a player,
+ I want to choose the state of the game;
+So that Game will start with state that they choose .
+
+Scenario S6.1: choose a state.
+Given The game have 5 states
+When  the player clicks the "Play" button;
+Then  the player can play the state that they want.
+
+Scenario S6.2: Win the game.
+Given The player win .
+When  the player can collect all of the pellet .
+Then  the player can play the next state .
+
+Scenario S6.3: Win all the state.
+Given The player win .
+When  the player collect all of the pellet in last state .
+Then  the player will go to home page .
+```
 ## 3. User Interface
 
 The user interface for JPacman is relatively simple.  The game is

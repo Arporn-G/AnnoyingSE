@@ -29,6 +29,7 @@ class ButtonPanel extends JPanel {
      */
     Font pixelMplusRegular, pixelMplusBold;
     private Image background;
+    PacManUI pacManUI;
 
     private boolean over;
     private Color color, colorOver, colorClick, borderColor;
@@ -84,7 +85,18 @@ class ButtonPanel extends JPanel {
 //        Font sansSerifFont = new Font("MS Reference Sans Serif", Font.TRUETYPE_FONT, 24);
         setPreferredSize(new Dimension(600,100));
 //        setBounds(300, 200, 600, 600);
-        background = new ImageIcon("./src/main/resources/sprite/button.png").getImage();
+        String path = "";
+        if (pacManUI.getTheme_() == 2){
+            path = "/dungeon";
+        }else if(pacManUI.getTheme_() == 3){
+            path = "/farm";
+        }else if(pacManUI.getTheme_() == 4){
+            path = "/pirate";
+        }else {
+            path = "";
+        }
+
+        background = new ImageIcon("./src/main/resources/sprite"+path+"/button.png").getImage();
         over = false;
         color = new Color(33, 239, 128);
         colorOver = new Color(244, 131, 163);

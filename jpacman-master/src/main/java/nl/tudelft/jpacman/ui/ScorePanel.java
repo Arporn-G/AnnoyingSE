@@ -28,6 +28,7 @@ public class ScorePanel extends JPanel {
      */
     private static final long serialVersionUID = 1L;
     private Image background;
+    PacManUI pacManUI;
     /**
      * The map of players and the labels their scores are on.
      */
@@ -64,7 +65,17 @@ public class ScorePanel extends JPanel {
         setLayout(new GridLayout(rows, cols, 0, 0));
         setPreferredSize(new Dimension(600,100));
 //        setBounds(300, 200, 600, 600);
-        background = new ImageIcon("./src/main/resources/sprite/up.png").getImage();
+        String path = "";
+        if (pacManUI.getTheme_() == 2){
+            path = "/dungeon";
+        }else if(pacManUI.getTheme_() == 3){
+            path = "/farm";
+        }else if(pacManUI.getTheme_() == 4){
+            path = "/pirate";
+        }else {
+            path = "";
+        }
+        background = new ImageIcon("./src/main/resources/sprite"+path+"/up.png").getImage();
 
 
 

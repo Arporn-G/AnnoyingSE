@@ -239,7 +239,7 @@ public class Launcher {
     }
     public void launch(int s) {
         if(s == 1){
-                setLevelMap("/board1-test.txt");
+                setLevelMap("/board1.txt");
                 setLevelstate(1);
             }
         if(s == 2){
@@ -255,7 +255,7 @@ public class Launcher {
             setLevelstate(4);
         }
         if(s == 5){
-            setLevelMap("/board5-test.txt");
+            setLevelMap("/board5.txt");
             setLevelstate(5);
         }
         makeGame();

@@ -21,7 +21,7 @@ public class SpriteStore {
      * We only need to load images once, so we keep track
      * of them in a hash map.
      */
-    private final Map<String, Sprite> spriteMap;
+    public Map<String, Sprite> spriteMap;
 
     /**
      * Create a new sprite store.
@@ -63,7 +63,7 @@ public class SpriteStore {
         value = "RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE",
         justification = "false positive in java 11"
     )
-    private Sprite loadSpriteFromResource(String resource) throws IOException {
+    public Sprite loadSpriteFromResource(String resource) throws IOException {
         try (InputStream input = SpriteStore.class.getResourceAsStream(resource)) {
             if (input == null) {
                 throw new IOException("Unable to load " + resource + ", resource does not exist.");

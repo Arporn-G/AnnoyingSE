@@ -28,6 +28,12 @@ public class ScorePanel extends JPanel {
      */
     private static final long serialVersionUID = 1L;
     private Image background;
+
+    public String getPath() {
+        return path;
+    }
+
+    String path = "";
     PacManUI pacManUI;
     /**
      * The map of players and the labels their scores are on.
@@ -37,6 +43,7 @@ public class ScorePanel extends JPanel {
     /**
      * The default way in which the score is shown.
      */
+
     public static final ScoreFormatter DEFAULT_SCORE_FORMATTER =
         (Player player) -> String.format("  Score: %1d", player.getScore());
 
@@ -65,7 +72,6 @@ public class ScorePanel extends JPanel {
         setLayout(new GridLayout(rows, cols, 0, 0));
         setPreferredSize(new Dimension(600,100));
 //        setBounds(300, 200, 600, 600);
-        String path = "";
         if (pacManUI.getTheme_() == 2){
             path = "/dungeon";
         }else if(pacManUI.getTheme_() == 3){

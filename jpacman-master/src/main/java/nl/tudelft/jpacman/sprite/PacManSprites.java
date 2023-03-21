@@ -97,7 +97,7 @@ public class PacManSprites extends SpriteStore {
      *            The number of frames in this sprite.
      * @return The animated sprite facing the given direction.
      */
-    private Map<Direction, Sprite> directionSprite(String resource, int frames) {
+    protected Map<Direction, Sprite> directionSprite(String resource, int frames) {
         Map<Direction, Sprite> sprite = new HashMap<>();
 
         Sprite baseImage = loadSprite(resource);

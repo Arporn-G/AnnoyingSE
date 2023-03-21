@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.util.Map;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 /**
  * A panel containing a button for every registered action.
@@ -31,50 +33,13 @@ class ButtonPanel extends JPanel {
     private Image background;
     PacManUI pacManUI;
 
-    private boolean over;
-    private Color color, colorOver, colorClick, borderColor;
-    private int radius = 0;
+    private boolean over = false;
 
     public boolean isOver() {
-        return over;
+        return this.over;
     }
     public void setOver(boolean over) {
         this.over = over;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    public Color getColorOver() {
-        return colorOver;
-    }
-    public void setColorOver(Color colorOver) {
-        this.colorOver = colorOver;
-    }
-
-    public Color getColorClick() {
-        return colorClick;
-    }
-    public void setColorClick(Color colorClick) {
-        this.colorClick = colorClick;
-    }
-
-    public Color getBorderColor() {
-        return borderColor;
-    }
-    public void setBorderColor(Color borderColor) {
-        this.borderColor = borderColor;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
-    public void setRadius(int radius) {
-        this.radius = radius;
     }
 
     ButtonPanel(final Map<String, Action> buttons, final JFrame parent) {
@@ -97,9 +62,9 @@ class ButtonPanel extends JPanel {
         }
 
         background = new ImageIcon("./src/main/resources/sprite"+path+"/button.png").getImage();
-        over = false;
-        color = new Color(33, 239, 128);
-        colorOver = new Color(244, 131, 163);
+//        over = false;
+//        color = new Color(33, 239, 128);
+//        colorOver = new Color(244, 131, 163);
 
         try {
             InputStream is = getClass().getResourceAsStream("/fonts/PixelMplus10-Regular.ttf");
@@ -122,28 +87,91 @@ class ButtonPanel extends JPanel {
 
 //            button.setBackground(color);
             button.setFont(pixelMplusRegular);
+
+            if (pacManUI.getTheme_() == 2){
+                button.setBackground(new Color(92,92,86));
+                button.setBorder(new LineBorder(new Color(52,52,46), 4));
+                button.setForeground(new Color(240,204,3));
+
+            }else if(pacManUI.getTheme_() == 3){
+//                button.setBackground(new Color(179,215,67));
+//                button.setBorder(new LineBorder(new Color(201,91,9), 4));
+//                button.setForeground(new Color(251,165,36));
+                button.setBackground(new Color(198,63,59));
+                button.setBorder(new LineBorder(new Color(243,243,243), 4));
+                button.setForeground(new Color(243,243,243));
+            }else if(pacManUI.getTheme_() == 4){
+                button.setBackground(new Color(255,186,113));
+                button.setBorder(new LineBorder(new Color(167,85,0), 4));
+                button.setForeground(new Color(167,85,0));
+            }else {
+                button.setBackground(new Color(132,136,244));
+                button.setBorder(new LineBorder(new Color(24,242,123), 4));
+                button.setForeground(Color.WHITE);
+            }
+
             button.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent me) {
-//                    super.mouseEntered(me);
+                    super.mouseEntered(me);
+                    if (pacManUI.getTheme_() == 2){
+                        button.setBackground(new Color(52,52,46));
+                        button.setBorder(new LineBorder(new Color(92,92,86), 4));
+                        button.setForeground(new Color(235,225,9));
+
+                    }else if(pacManUI.getTheme_() == 3){
+//                        button.setBackground(new Color(255,204,108));
+//                        button.setBorder(new LineBorder(new Color(78,127,28), 4));
+//                        button.setForeground(new Color(120,129,4));
+                        button.setBackground(new Color(243,243,243));
+                        button.setBorder(new LineBorder(new Color(198,63,59), 4));
+                        button.setForeground(new Color(198,63,59));
+                    }else if(pacManUI.getTheme_() == 4){
+                        button.setBackground(new Color(167,85,0));
+                        button.setBorder(new LineBorder(new Color(255,186,113), 4));
+                        button.setForeground(new Color(255,186,113));
+                    }else {
+                        button.setBackground(new Color(24,242,123));
+                        button.setBorder(new LineBorder(new Color(132,136,244), 4));
+                        button.setForeground(Color.BLACK);
+                    }
 //                    button.setBackground(colorOver);
-                    over = true;
+                    setOver(true);
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-//                    super.mouseExited(e);
+                    super.mouseExited(e);
+                    if (pacManUI.getTheme_() == 2){
+                        button.setBackground(new Color(92,92,86));
+                        button.setBorder(new LineBorder(new Color(52,52,46), 4));
+                        button.setForeground(new Color(240,204,3));
+
+                    }else if(pacManUI.getTheme_() == 3){
+//                        button.setBackground(new Color(179,215,67));
+//                        button.setBorder(new LineBorder(new Color(201,91,9), 4));
+//                        button.setForeground(new Color(251,165,36));
+                        button.setBackground(new Color(198,63,59));
+                        button.setBorder(new LineBorder(new Color(243,243,243), 4));
+                        button.setForeground(new Color(243,243,243));
+                    }else if(pacManUI.getTheme_() == 4){
+                        button.setBackground(new Color(255,186,113));
+                        button.setBorder(new LineBorder(new Color(167,85,0), 4));
+                        button.setForeground(new Color(167,85,0));
+                    }else {
+                        button.setBackground(new Color(132,136,244));
+                        button.setBorder(new LineBorder(new Color(24,242,123), 4));
+                        button.setForeground(Color.WHITE);
+                    }
 //                    button.setBackground(color);
-                    over = false;
+                    setOver(false);
                 }
             });
 
             add(button);
         }
     }
-    public void mouseEntered(MouseEvent evt) {
 
-    }
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -155,7 +155,7 @@ cells on the board.  The direction of the last (attempted) move is
 reflected in the image used for the player. The GUI furthermore
 contains a "Start", and "Stop" button (at the bottom of the
 GUI), as well as an indicator for the amount of food eaten and the
-game's overall state (playing, game won, player died, ready to start
+game's overall stage (playing, game won, player died, ready to start
 the play). 
 
 ## 4. Development Requirements

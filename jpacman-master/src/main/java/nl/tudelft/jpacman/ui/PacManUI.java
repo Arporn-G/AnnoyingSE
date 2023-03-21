@@ -115,7 +115,7 @@ public class PacManUI extends JFrame {
         scorePanel.refresh();
     }
 
-    public  void Homepage(){
+    public  String Homepage(){
         currentPage = "Homepage";
         setTitle("JPacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -203,10 +203,10 @@ public class PacManUI extends JFrame {
         add(PlayGame);
         setSize(600,600);
         this.setLocationRelativeTo(null);
-
+    return themeHome;
     }
 
-    public void Statepage() {
+    public String Statepage() {
         currentPage = "Statepage";
         setTitle("JPacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -220,7 +220,7 @@ public class PacManUI extends JFrame {
 
         String stateHome;
         if (theme_num == 2) {
-            stateHome = "dungeon/stage"; /*dun*/
+            stateHome = "dungeon/state"; /*dun*/
             stateone.setBounds(368, 540, 100, 40);
             statetwo.setBounds(35, 375, 100, 40);
             statethree.setBounds(466, 375, 100, 40);
@@ -228,7 +228,7 @@ public class PacManUI extends JFrame {
             statefive.setBounds(466, 215, 100, 40);
             home.setBounds(10, 450, 125, 40);
         } else if (theme_num == 3) {
-            stateHome = "farm/stage"; /*fram*/
+            stateHome = "farm/state"; /*fram*/
             stateone.setBounds(23, 355, 100, 120);
             statetwo.setBounds(160, 350, 100, 120);
             statethree.setBounds(240, 470, 100, 120);
@@ -333,6 +333,7 @@ public class PacManUI extends JFrame {
         home.setContentAreaFilled(false);
         home.setBorderPainted(false);
         add(home);
+    return stateHome;
     }
 
 
@@ -565,8 +566,6 @@ public class PacManUI extends JFrame {
     public static void setTheme_(int theme_num) {
         PacManUI.theme_num = theme_num;
     }
-
-
 
 
 }

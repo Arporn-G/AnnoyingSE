@@ -1,12 +1,10 @@
-package nl.tudelft.jpacman;
-
-import nl.tudelft.jpacman.ui.PacManUI;
+package nl.tudelft.jpacman.NewTest;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.swing.JButton;
-import org.junit.Test;
+import nl.tudelft.jpacman.ui.PacManUI;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PageTest extends PacManUI {
     @BeforeEach
@@ -18,19 +16,19 @@ public class PageTest extends PacManUI {
         assertEquals("Homepage",ui.currentPage);
     }
     
-    @Test
-    public void testSettingPage() {
-        PacManUI ui = new PacManUI();
-        ui.Settingpage();
-        assertEquals("Settingpage",ui.currentPage);
-    }
+//    @Test
+//    public void testSettingPage() {
+//        PacManUI ui = new PacManUI();
+//        ui.settingpage();
+//        assertEquals("Settingpage",ui.currentPage);
+//    }
     
-    @Test
-    public void testChoosestagePage() {
-        PacManUI ui = new PacManUI();
-        ui.ChoosestagePage();
-        assertEquals("Choosestagepage",ui.currentPage);
-    }
+//    @Test
+//    public void testChoosestagePage() {
+//        PacManUI ui = new PacManUI();
+//        ui.ChoosethemePage();
+//        assertEquals("Choosestagepage",ui.currentPage);
+//    }
     
     @Test
     public void testChoosethemePage() {

@@ -2,7 +2,9 @@ package nl.tudelft.jpacman.NewTest;
 
 import static org.junit.Assert.assertEquals;
 
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.ui.PacManUI;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,5 +38,10 @@ public class PageTest extends PacManUI {
         ui.ChoosethemePage();
         assertEquals("Choosethemepage",ui.currentPage);
     }
-
+    @Test
+    public void testStatepage() {
+        PacManUI ui = new PacManUI();
+        ui.Statepage();
+        assertEquals("Statepage",ui.currentPage);
+    }
 }

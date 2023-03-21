@@ -21,7 +21,7 @@ public class StateThemeTest {
         PacManUI ui = new PacManUI();
         ui.setTheme_(3);
         ui.ChoosethemePage();
-        assertEquals("farm/state", ui.getState());
+        assertEquals("farm/state", ui.Statepage());
 
     }
     @Test

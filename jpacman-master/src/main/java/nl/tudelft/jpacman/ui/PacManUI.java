@@ -49,11 +49,11 @@ public class PacManUI extends JFrame {
     /**
      * The panel displaying the player scores.
      */
-    private ScorePanel scorePanel;
+    public ScorePanel scorePanel;
 
-    private BoardPanel boardPanel;
+    public BoardPanel boardPanel;
 
-    private ButtonPanel buttonPanel;
+    public ButtonPanel buttonPanel;
     private Game game;
     private PacKeyListener keys;
 
